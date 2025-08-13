@@ -1,0 +1,84 @@
+{
+  "title": "One man's questionable decision to make the web a little less boring",
+  "blocks": [
+    {
+      "id": "intro-1",
+      "type": "paragraph",
+      "text": "I didn't know what to expect when I set out on this. A while back, I wrote an article wishing print journalism-style layouts would make a comeback. And I fully believe they should. We should have more fun and be more creative, and stop confining ourselves to generic, mundane templates that seem to permeate every corner of the web. Your website doesn't have to look like every other website!",
+      "keepWithNext": false,
+      "orphanProtection": 2
+    },
+    {
+      "id": "intro-2", 
+      "type": "paragraph",
+      "text": "We also run the risk—at least in my opinion—of that being even more of a threat with the introduction of AI. And, yes, I used those em dashes. Not ChatGPT. Humans are allowed to use the em dash, too! Anyway, as more and more AI tools are used to design and build websites, they will continue to create what already exists. After all, AI can only create what it's already seen. It can write a story in the style of Simon Sinek, but it can't write a story like someone who hasn't been born yet.",
+      "keepWithNext": false,
+      "orphanProtection": 2
+    },
+    {
+      "id": "intro-3",
+      "type": "paragraph", 
+      "text": "But what if we could use AI to do better? Hear me out.",
+      "keepWithNext": false,
+      "orphanProtection": 1
+    },
+    {
+      "id": "heading-1",
+      "type": "heading",
+      "level": 4,
+      "text": "Print Layouts Are Hard",
+      "keepWithNext": true,
+      "breakBefore": true
+    },
+    {
+      "id": "print-1",
+      "type": "paragraph",
+      "text": "Having done them in the past as a graphic designer, I can assure you it takes a strong knowledge of layout and typography, and it's still incredibly hard. Plus, you want to try something creative that still serves the purpose of being readable. Then, to make that responsive for the modern web? Not happening.",
+      "keepWithNext": false,
+      "orphanProtection": 2
+    },
+    {
+      "id": "print-2", 
+      "type": "paragraph",
+      "text": "That's not true, though. It can happen. Is it hard? Yes. But you know who's really good at writing complex code? Claude. Or ChatGPT. But I prefer Claude for now. I wished it would happen, but, like my mate Paul says, \"Be the change you wish to see in the world.\" So here we are.",
+      "keepWithNext": false,
+      "orphanProtection": 2
+    },
+    {
+      "id": "print-3",
+      "type": "paragraph",
+      "text": "I have a whole ass R&D Lab as part of my website where I just do shit that challenges me. Things that seem interesting or intriguing, or allow me to test new tools or language models. So it felt like the ideal place to see if print layouts are even possible.",
+      "keepWithNext": false, 
+      "orphanProtection": 2
+    },
+    {
+      "id": "heading-2",
+      "type": "heading", 
+      "level": 4,
+      "text": "We Used to Have Regions",
+      "keepWithNext": true,
+      "breakBefore": false
+    },
+    {
+      "id": "regions-1",
+      "type": "paragraph",
+      "text": "The trick is in the CSS, and the magic of JavaScript. Back in the old days, meaning circa 2014-ish, there was a thing in CSS called Regions. Sort of like CSS columns, where text could wrap into multiple columns, but even more advanced, and even more flexible. And then none of the browsers supported it. I think Safari, maybe... for, like, a hot minute. And then it got deprecated.",
+      "keepWithNext": false,
+      "orphanProtection": 2
+    },
+    {
+      "id": "regions-2",
+      "type": "paragraph", 
+      "text": "But Regions were invented for exactly this purpose. Intricate, journalism-style layouts, but for the responsive web. It went away because Bootstrap became popular and fucked everything up by making every new website look exactly the same. It was a terrible time for the internet.",
+      "keepWithNext": false,
+      "orphanProtection": 2
+    },
+    {
+      "id": "regions-3",
+      "type": "paragraph",
+      "text": "I'm trying to find out if it's possible to change that.",
+      "keepWithNext": false,
+      "orphanProtection": 1
+    }
+  ]
+}

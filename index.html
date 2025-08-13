@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EXPERIMENTAL LAYOUTS</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Anybody:wght@100..900&family=Assistant:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="styles/intro.css" />
+  </head>
+  <body class="bg-[#FEFEFE] text-[#0D0E0E] antialiased">
+    <header class="w-full">
+      <div
+        class="px-4 sm:px-6 lg:px-8 py-4 flex items-center"
+      >
+        <div class="w-32 h-10 flex items-center">
+          <img src="images/Logo.svg" alt="R&D LABS" class="h-full w-auto" />
+        </div>
+      </div>
+    </header>
+
+        <main id="main" class="relative">
+      <div class="two-column-layout">
+        <!-- Left Column: Hero + Short Region -->
+        <div class="left-column">
+          <section id="hero" class="hero-section">
+            <div class="hero-content">
+              <div class="hero-grid">
+                <div class="hero-experi">
+                  <h1 class="hero-word mb-4">EXPERI<span class="hero-dash">&mdash;</span></h1>
+                </div>
+                <div class="hero-mental">
+                  <h1 class="hero-word">MENTAL</h1>
+                </div>
+                <p class="hero-subtitle">
+                  One man's questionable decision to make the web a little less
+                  boring
+                </p>
+              </div>
+            </div>
+          </section>
+          
+          <div class="region region-short hidden xl:block" data-flow-order="1"></div>
+        </div>
+
+        <!-- Right Column: Tall Region -->
+        <div class="right-column">
+          <div class="region region-tall" data-flow-order="2"></div>
+        </div>
+        
+        <!-- Mobile/Medium traditional container (renders all content sequentially) -->
+        <div class="traditional-container xl:hidden" id="traditional-container"></div>
+      </div>
+    </main>
+
+    <script src="js/text-flow.js"></script>
+    <script src="js/intro.js"></script>
+  </body>
+  </html>
