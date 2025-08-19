@@ -1,0 +1,727 @@
+:root {
+  --color-primary: #0D0E0E;
+  --color-background: #FEFEFE;
+  --color-accent: #E72C1E;
+}
+
+/* Logo color override for this page only */
+.logo-svg path:first-child {
+  fill: #E72C1E;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
+/* Content Layout Container */
+.content-layout {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 92vh;
+  padding: 0 2rem;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Ensure regions are visible and measurable */
+.content-layout .region {
+  position: relative;
+}
+
+/* Hero Section Layout - Restored Original */
+.hero-section {
+  position: relative;
+  min-height: 90%;
+  width: 100%;
+  max-width: 48rem; /* 3xl equivalent */
+  flex: 0 0 auto;
+}
+
+.region {
+  height: 92vh; /* Reduced to make room for blockquote */
+  overflow: visible;
+}
+
+/* Blockquote Section */
+.blockquote-section {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  width: 29vw; /* Spans across multiple column widths */
+  max-width: 800px;
+  z-index: 10;
+}
+
+/* Robot Heart Image */
+.robot-heart-section {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 5; /* Lower than blockquote but above regions */
+}
+
+.robot-heart-image {
+  width: 30vw;
+  height: auto;
+  opacity: 0.8;
+  display: none; /* Hidden by default, shown on specific breakpoints */
+}
+
+/* Region Width Control */
+/* 2880px+ viewport: All regions can fit */
+@media (min-width: 2880px) {
+  .region {
+    min-width: 15vw;
+    max-width: 35vw;
+    flex: 1;
+  }
+}
+
+/* 2100px viewport: Slightly wider regions */
+@media (min-width: 2101px) and (max-width: 2880px) {
+  .region {
+    min-width: 12vw;
+    max-width: 18vw;
+    flex: 1;
+  }
+
+  .region-3 {
+    height: 75vh;
+  }
+
+  .region-4 {
+    height: 75vh;
+  }
+}
+
+/* 1601-2100px viewport: Medium sizing */
+@media (min-width: 1601px) and (max-width: 2100px) {
+  .region {
+    min-width: 20vw;
+    max-width: 25vw;
+    flex: 1;
+  }
+
+  .region-1 {
+    height: 75vh;
+  }
+
+  .region-2 {
+    height: 75vh;
+  }
+
+  .region-3 {
+    height: 90vh;
+  }
+
+  .region-4 {
+    height: 90vh;
+  }
+  
+  /* Show region-5 in this range for overflow content */
+  .region-5 {
+    height: 90vh;
+    min-width: 20vw;
+    max-width: 25vw;
+  }
+
+  .hero-section {
+    height: 92vh;
+  }
+
+  .blockquote-section {
+    bottom: auto;
+    top: 76vh;
+    width: 46.5vw;
+  }
+
+  .quote-text {
+    font-size: 32px;
+  }
+  
+  .quote-attribution {
+    font-size: 20px;
+  }
+  
+  /* Show robot heart image on this breakpoint */
+  .robot-heart-image {
+    display: block;
+    width: 30vw;
+  }
+  
+  /* Adjust robot heart positioning for this layout */
+  .robot-heart-section {
+    bottom: 12vh;
+    right: 10vw;
+  }
+}
+
+/* 1600px viewport: Regions start to wrap */
+@media (max-width: 1600px) {
+  .region {
+    min-width: 22vw;
+    max-width: 45vw;
+    flex: 1;
+  }
+
+  .region-1 {
+    height: 75vh;
+  }
+
+  .hero-section {
+    height: 92vh;
+  }
+  
+  /* Show robot heart image on this breakpoint */
+  .robot-heart-image {
+    display: block;
+    width: 30vw;
+  }
+  
+  /* Adjust robot heart positioning for this layout */
+  .robot-heart-section {
+    bottom: 12vh;
+    right: 10vw;
+    z-index: -1;
+  }
+
+  .blockquote-section {
+    bottom: auto;
+    top: 75vh;
+    width: 46.5vw;
+  }
+
+  .quote-text {
+    font-size: 42px;
+  }
+  
+  .quote-attribution {
+    font-size: 24px;
+  }
+}
+
+/* 1400px viewport: Regions wrap to new lines */
+@media (max-width: 1400px) {
+  .region {
+    min-width: 25vw;
+    max-width: 48vw;
+    flex: 1;
+  }
+
+  .robot-heart-section {
+    bottom: 2vh;
+    right: 7vw;
+    z-index: -1;
+  }
+}
+
+.region .flow-content {
+  height: calc(100% - 3rem); /* Account for 1.5rem padding on top and bottom */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Flow Typography */
+.flow-p, .flow-heading {
+  text-wrap: pretty;
+}
+
+.quote-text {
+  font-family: 'Gloock', serif;
+  font-size: 36px;
+  line-height: 85%;
+  color: var(--color-primary);
+  margin: 0 0 .5rem 0;
+  text-indent: -1rem;
+}
+
+.quote-attribution {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  line-height: 130%;
+  font-style: italic;
+  color: var(--color-primary);
+  display: block;
+  text-align: right;
+}
+
+.flow-p {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: -1px;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.flow-h2, .flow-h3, .flow-h4 {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: -2px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-image {
+  position: absolute;
+  top: -4rem;
+  left: 20rem;
+  width: auto;
+  z-index: 1;
+}
+
+.hero-image img {
+  width: auto;
+  height: 100%;
+  display: block;
+  transform: translateX(25%);
+  opacity: 0.8;
+}
+
+/* Title Positioning and Styling */
+.hero-title-container {
+  position: relative;
+  z-index: 2;
+  margin-top: 20vh;
+}
+
+.hero-title {
+  font-family: 'Gloock', serif;
+  font-size: 108px;
+  line-height: 85%;
+  letter-spacing: -4px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0 2rem;
+}
+
+/* Content Section */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.content-text {
+  max-width: 100%;
+}
+
+.content-text p {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: -2px;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.content-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Typography Utilities */
+.body-text {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: -1px;
+  font-weight: 400;
+}
+
+.body-lg {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: -2px;
+  font-weight: 400;
+}
+
+.heading-h2 {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: -2px;
+  font-weight: 700;
+}
+
+.traditional-container .flow-p, 
+.traditional-container .flow-heading {
+  text-wrap: pretty;
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+.traditional-container .flow-p {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: -1px;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.traditional-container .flow-h2, 
+.traditional-container .flow-h3, 
+.traditional-container .flow-h4 {
+  font-family: 'Lora', serif;
+  line-height: 130%;
+  letter-spacing: -2px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.traditional-container .flow-h2 {
+  font-size: 24px;
+}
+
+.traditional-container .flow-h3 {
+  font-size: 22px;
+}
+
+.traditional-container .flow-h4 {
+  font-size: 20px;
+}
+
+/* Blockquote styling for traditional layout */
+.traditional-container .blockquote-break {
+  column-span: all;
+  display: block;
+  width: 100%;
+  margin: 3rem 0;
+  padding: 2rem;
+  border-left: 4px solid var(--color-accent);
+  border-right: 4px solid var(--color-accent);
+}
+
+.traditional-container .blockquote-break .quote-text {
+  font-family: 'Gloock', serif;
+  font-size: 32px;
+  line-height: 85%;
+  color: var(--color-primary);
+  margin: 0 0 1rem 0;
+}
+
+.traditional-container .blockquote-break .quote-attribution {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  line-height: 130%;
+  font-style: italic;
+  color: var(--color-primary);
+  display: block;
+}
+
+.accent-color {
+  color: #E72C1E;
+}
+
+/* Responsive Design for Largest Breakpoint (2880px) */
+@media (min-width: 2880px) {
+  .hero-title {
+    font-size: 108px;
+    line-height: 85%;
+    letter-spacing: -4px;
+  }
+  
+  .content-text p {
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: -2px;
+  }
+}
+
+/* 2100px Breakpoint */
+@media (min-width: 2101px) and (max-width: 2880px) {
+  .hero-title {
+    font-size: 96px;
+    line-height: 85%;
+    letter-spacing: -3.5px;
+  }
+  
+  .content-text p {
+    font-size: 22px;
+    line-height: 130%;
+    letter-spacing: -1.8px;
+  }
+}
+
+/* 1601-2100px Breakpoint */
+@media (min-width: 1601px) and (max-width: 2100px) {
+  .hero-title {
+    font-size: 90px;
+    line-height: 85%;
+    letter-spacing: -3.25px;
+  }
+  
+  .content-text p {
+    font-size: 21px;
+    line-height: 130%;
+    letter-spacing: -1.75px;
+  }
+}
+
+/* 1600px Breakpoint */
+@media (max-width: 1600px) {
+  .hero-title {
+    font-size: 84px;
+    line-height: 85%;
+    letter-spacing: -3px;
+  }
+  
+  .content-text p {
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: -1.5px;
+  }
+}
+
+/* 1440px Breakpoint */
+@media (max-width: 1440px) {
+  .hero-title {
+    font-size: 88px;
+    line-height: 85%;
+    letter-spacing: -2.5px;
+  }
+  
+  .content-text p {
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: -0.5px;
+  }
+}
+
+/* 1280px Breakpoint */
+@media (max-width: 1280px) {
+  .hero-title {
+    font-size: 80px;
+    line-height: 85%;
+    letter-spacing: -2px;
+  }
+
+  .hero-section {
+    height: 75vh;
+  }
+  
+  .content-text p {
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: -1px;
+  }
+
+  .region {
+    min-width: 35vw;
+  }
+
+  .region-1 {
+    height: 92vh;
+  }
+
+  .region-2 {
+    height: 70vh;
+    margin-top: 22vh;
+  }
+
+  .region-3 {
+    height: 75vh;
+  }
+
+  .region-4 {
+    height: 75vh;
+  }
+
+  .blockquote-section {
+    top: 80vh;
+    width: 45vw;
+  }
+}
+
+/* 1024px Breakpoint */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 56px;
+    line-height: 85%;
+    letter-spacing: -1.5px;
+  }
+  
+  .content-text p {
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: -1px;
+  }
+
+  .traditional-container {
+    display: block !important;
+    padding: 2rem 1rem;
+    column-count: 1;
+    max-width: 100%;
+  }
+
+  .content-layout {
+    min-height: unset;
+  }
+
+  .region {
+    display: none;
+  }
+  
+  .hero-title {
+    font-size: 80px;
+    line-height: 85%;
+    letter-spacing: -1px;
+  }
+
+  .hero-title-container {
+    margin-top: 10rem;
+  }
+  
+  .content-text p {
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: -0.4px;
+  }
+
+  .hero-section {
+    height: unset;
+  }
+  
+  .hero-title {
+    padding: 0;
+  }
+
+  .hero-content {
+    padding: 2rem 0;
+  }
+
+  .robot-heart-section {
+    bottom: 0.5rem;
+    right: 2rem;
+    z-index: -1;
+  }
+
+  /* Traditional Layout Styling */
+  .traditional-container {
+    column-count: 2;
+    column-gap: 3rem;
+    column-fill: balance;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .traditional-container {
+    column-count: 1;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    line-height: 85%;
+    letter-spacing: -1px;
+  }
+
+  .hero-image {
+    width: 20rem;
+  }
+
+  .hero-image img {
+    transform: none;
+  }
+}
+
+/* 640px Breakpoint */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 48px;
+    line-height: 85%;
+    letter-spacing: -1px;
+  }
+
+  .hero-title-container {
+    margin-top: 21rem;
+  }
+
+  .hero-image {
+    left: auto;
+    right: 0;
+    top: -4rem;
+    width: 100%;
+  }
+
+  .content-layout {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  header {
+    position: relative;
+    z-index: 10;
+  }
+
+  .traditional-container {
+    padding: 1rem;
+  }
+
+  .traditional-container .flow-h4 {
+    margin-top: 2rem;
+    letter-spacing: 0px;
+  }
+
+  .traditional-container .flow-p {
+    letter-spacing: 0px;
+  }
+
+  .traditional-container .blockquote-break .quote-attribution {
+    font-size: 14px;
+  }
+
+  .traditional-container .blockquote-break {
+    padding: .5rem 1rem .5rem 1.5rem;
+  }
+
+  .robot-heart-section {
+    bottom: -3.5rem;
+    right: 1rem;
+    z-index: -1;
+  }
+
+  .robot-heart-image {
+    width: 18rem;
+  }
+}
+
+/* 375px Breakpoint */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 48px;
+    line-height: 85%;
+    letter-spacing: -0.5px;
+  }
+  
+  .content-text p {
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: 0px;
+  }
+  
+  .hero-content {
+    padding: 1rem 0;
+  }
+  
+  .hero-title-container {
+    padding: 0;
+  }
+  
+  .traditional-container {
+    padding: 1rem;
+  }
+
+  .robot-heart-section {
+    bottom: -10rem;
+  }
+}
+
+
+

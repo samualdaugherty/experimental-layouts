@@ -10,6 +10,12 @@ html, body {
   color: var(--color-primary);
 }
 
+body {
+  max-width: 1800px;
+}
+
+
+
 #hero .hero-grid {
   display: flex;
   flex-direction: column;
@@ -104,6 +110,15 @@ html, body {
 
 .region {
   overflow: hidden;
+}
+
+@media (min-width: 1800px) {
+  .hero-subtitle {
+    max-width: 24rem;
+    margin-top: -11.5rem;
+    margin-left: 6rem;
+    font-size: 2.5rem;
+  }
 }
 
 /* Large Desktop (1280px and below) */

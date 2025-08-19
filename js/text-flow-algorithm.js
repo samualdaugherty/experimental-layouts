@@ -232,9 +232,10 @@
 
       for (let i = 0; i < this.regions.length; i++) {
         const region = this.regions[i];
+        // Algorithm page uses .flow-content wrapper structure
         const wrap = region.querySelector('.flow-content');
         if (!wrap) {
-          this.log('No flow-content wrapper found in region', i);
+          this.log(`Region ${i + 1}: No .flow-content wrapper found, skipping`);
           continue;
         }
 
@@ -261,52 +262,28 @@
           const block = queue[0];
           this.log(`Region ${i + 1}: Processing block "${block.text.substring(0, 30)}..."`);
 
-          // keep-with-next handling
-          if (block.keepWithNext && queue.length >= 2) {
-            const elA = block.elFactory(block.text);
-            const elB = queue[1].type === 'paragraph'
-              ? queue[1].elFactory(queue[1].text)
-              : queue[1].elFactory();
+          // Skip keep-with-next logic entirely - let content flow naturally
 
-            const heightTogether = this.measureHeight([elA, elB]);
-            this.log(`Region ${i + 1}: keep-with-next height=${heightTogether}, remaining=${remaining}`);
+          // For headings, use simple fit check
+          if (block.type !== 'paragraph') {
+            const el = block.elFactory();
+            const h = this.measureHeight([el]);
+            this.log(`Region ${i + 1}: Heading height=${h}, remaining=${remaining}`);
             
-            if (heightTogether <= remaining) {
-              wrap.appendChild(elA);
-              wrap.appendChild(elB);
-              used += heightTogether;
+            if (h <= remaining) {
+              wrap.appendChild(el);
+              used += h;
               queue.shift();
-              queue.shift();
-              blocksAdded += 2;
-              this.log(`Region ${i + 1}: Added 2 blocks with keep-with-next`);
+              blocksAdded++;
+              this.log(`Region ${i + 1}: Added heading`);
               continue;
             } else {
-              this.log(`Region ${i + 1}: Cannot fit keep-with-next blocks, moving to next region`);
+              this.log(`Region ${i + 1}: Heading does not fit, moving to next region`);
               break;
             }
           }
 
-          // Single block fit check
-          const el = block.type === 'paragraph' ? block.elFactory(block.text) : block.elFactory();
-          const h = this.measureHeight([el]);
-          this.log(`Region ${i + 1}: Single block height=${h}, remaining=${remaining}`);
-
-          if (h <= remaining) {
-            wrap.appendChild(el);
-            used += h;
-            queue.shift();
-            blocksAdded++;
-            this.log(`Region ${i + 1}: Added single block`);
-            continue;
-          }
-
-          // Does not fit. Headings never split.
-          if (block.type !== 'paragraph') {
-            this.log(`Region ${i + 1}: Heading does not fit, moving to next region`);
-            break;
-          }
-
-          // Paragraph splitting with orphan protection
+          // For paragraphs, always try splitting first for better flow
           const split = this.splitParagraph(block, remaining);
           this.log(`Region ${i + 1}: Split result: fitsWords=${split.fitsWords}, firstText="${split.firstText.substring(0, 30)}..."`);
           
@@ -315,21 +292,24 @@
             break;
           }
 
-          // Append the fitting fragment
-          const firstText = split.firstText;
-          const restText = split.restText;
-          const fragEl = block.elFactory(firstText);
-          const fragHeight = this.measureHeight([fragEl]);
-          if (fragHeight <= remaining) {
+          // If split got all the words, it means the whole paragraph fits
+          if (split.fitsWords === block.text.split(/\s+/).filter(Boolean).length) {
+            // Use the whole paragraph
+            const el = block.elFactory(block.text);
+            wrap.appendChild(el);
+            used += this.measureHeight([el]);
+            queue.shift();
+            blocksAdded++;
+            this.log(`Region ${i + 1}: Added complete paragraph`);
+          } else {
+            // Use the fragment and update the block with remaining text
+            const fragEl = block.elFactory(split.firstText);
+            const fragHeight = this.measureHeight([fragEl]);
             wrap.appendChild(fragEl);
             used += fragHeight;
-            // Update the queue head with remaining text
-            block.text = restText;
+            block.text = split.restText;
             blocksAdded++;
-            this.log(`Region ${i + 1}: Added paragraph fragment, remaining text: "${restText.substring(0, 30)}..."`);
-          } else {
-            this.log(`Region ${i + 1}: Fragment measurement changed, moving to next region`);
-            break;
+            this.log(`Region ${i + 1}: Added paragraph fragment, remaining text: "${split.restText.substring(0, 30)}..."`);
           }
         }
         
@@ -337,6 +317,9 @@
       }
 
       this.log('Flow complete, remaining blocks:', queue.length);
+      
+      // Hide empty regions to prevent blank space in layout
+      this.hideEmptyRegions();
     }
 
     getRegionMetrics(region, wrap) {
@@ -393,47 +376,65 @@
       const words = text.split(/\s+/).filter(Boolean);
       if (words.length === 0) return { fitsWords: 0, firstText: '', restText: '' };
 
-      // Establish a measuring element with the paragraph style
+      // Create measuring element with paragraph style
       const measureP = block.elFactory('');
       this.sandbox.innerHTML = '';
       this.sandbox.appendChild(measureP);
+      
+      // Use the sandbox width which is already set to match the region
+      measureP.style.width = '100%';
+      measureP.style.height = 'auto';
+      measureP.style.overflow = 'visible';
+      
       const lineHeight = this.getLineHeightPx(measureP);
-      const minLines = Math.max(1, Number(block.orphanProtection || 2));
-      const minHeight = lineHeight * minLines;
-
-      // If we cannot fit even the minimum lines, defer to next region
-      if (availableHeight < minHeight) {
+      
+      // Calculate how many lines we can fit
+      const maxLines = Math.floor(availableHeight / lineHeight);
+      this.log(`splitParagraph: availableHeight=${availableHeight}, lineHeight=${lineHeight}, maxLines=${maxLines}`);
+      
+      if (maxLines < 1) {
+        this.log(`splitParagraph: Not enough space for even 1 line`);
         return { fitsWords: 0, firstText: '', restText: text };
       }
-
-      // Binary search the maximum words that fit within availableHeight
-      let lo = 1;
-      let hi = words.length;
-      let best = 0;
-      while (lo <= hi) {
-        const mid = Math.floor((lo + hi) / 2);
-        measureP.textContent = words.slice(0, mid).join(' ');
-        const h = measureP.getBoundingClientRect().height;
-        if (h <= availableHeight) {
-          best = mid;
-          lo = mid + 1;
+      
+      // Build text word by word until we exceed maxLines
+      let currentText = '';
+      let bestText = '';
+      let bestWordCount = 0;
+      
+      for (let i = 0; i < words.length; i++) {
+        const testText = currentText + (currentText ? ' ' : '') + words[i];
+        measureP.textContent = testText;
+        
+        // Force a reflow to get accurate height
+        measureP.offsetHeight;
+        const currentHeight = measureP.getBoundingClientRect().height;
+        const currentLines = Math.ceil(currentHeight / lineHeight);
+        
+        if (currentLines <= maxLines) {
+          currentText = testText;
+          bestText = testText;
+          bestWordCount = i + 1;
         } else {
-          hi = mid - 1;
+          // We've exceeded the line limit
+          this.log(`splitParagraph: Stopped at word ${i + 1}, lines would be ${currentLines} > ${maxLines}`);
+          break;
         }
       }
-
-      if (best === 0) return { fitsWords: 0, firstText: '', restText: text };
-
-      // Ensure fragment itself has at least minLines
-      measureP.textContent = words.slice(0, best).join(' ');
-      const fragHeight = measureP.getBoundingClientRect().height;
-      if (fragHeight < minHeight) {
-        return { fitsWords: 0, firstText: '', restText: text };
+      
+      // If we couldn't fit even one word, try it anyway
+      if (bestWordCount === 0 && words.length > 0) {
+        measureP.textContent = words[0];
+        const singleWordHeight = measureP.getBoundingClientRect().height;
+        if (singleWordHeight <= availableHeight) {
+          bestText = words[0];
+          bestWordCount = 1;
+        }
       }
-
-      const firstText = words.slice(0, best).join(' ');
-      const restText = words.slice(best).join(' ');
-      return { fitsWords: best, firstText, restText };
+      
+      const restText = words.slice(bestWordCount).join(' ');
+      this.log(`splitParagraph: Result - bestWordCount=${bestWordCount}, firstText="${bestText.substring(0, 30)}...", restText="${restText.substring(0, 30)}..."`);
+      return { fitsWords: bestWordCount, firstText: bestText, restText };
     }
 
     getLineHeightPx(el) {
@@ -442,6 +443,47 @@
       if (lh.endsWith('px')) return parseFloat(lh);
       const fontSize = parseFloat(cs.fontSize) || 16;
       return 1.2 * fontSize; // rough fallback for 'normal'
+    }
+
+    getRegionMetrics(region, wrap) {
+      const rect = wrap.getBoundingClientRect();
+      const styles = getComputedStyle(wrap);
+      
+      // For algorithm page: .flow-content container provides available height directly
+      const availableHeight = rect.height;
+      
+      // Inner width accounts for padding/borders of the .flow-content container
+      const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+      const paddingRight = parseFloat(styles.paddingRight) || 0;
+      const borderLeft = parseFloat(styles.borderLeftWidth) || 0;
+      const borderRight = parseFloat(styles.borderRightWidth) || 0;
+      
+      const innerWidth = rect.width - paddingLeft - paddingRight - borderLeft - borderRight;
+      
+      this.log(`getRegionMetrics (algorithm): .flow-content height=${rect.height}, availableHeight=${availableHeight}, width=${rect.width}, innerWidth=${innerWidth}`);
+      
+      return { availableHeight, innerWidth };
+    }
+
+    hideEmptyRegions() {
+      // Show all regions first (in case they were previously hidden)
+      this.regions.forEach((region) => {
+        region.style.display = '';
+      });
+      
+      // Then hide any regions that have no content
+      this.regions.forEach((region, index) => {
+        const wrap = region.querySelector('.flow-content');
+        if (wrap) {
+          const hasContent = wrap.children.length > 0;
+          if (!hasContent) {
+            region.style.display = 'none';
+            this.log(`Region ${index + 1}: Hidden (no content)`);
+          } else {
+            this.log(`Region ${index + 1}: Visible (has ${wrap.children.length} elements)`);
+          }
+        }
+      });
     }
 
     debounce(fn, delay) {
