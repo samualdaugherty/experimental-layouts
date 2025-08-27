@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/stoic-drama/(.*)",
+      "dest": "/stoic-drama/$1"
+    },
+    {
+      "src": "/algorithm/(.*)",
+      "dest": "/algorithm/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
