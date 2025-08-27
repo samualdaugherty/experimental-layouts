@@ -1,0 +1,1354 @@
+/* === CSS RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === CSS VARIABLES === */
+:root {
+    --bg-color: #1A1919;
+    --text-color: #FEFEFE;
+    --headline-font: 'Playfair Display', serif;
+    --body-font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* === BASE STYLES === */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    background: linear-gradient(180deg, #1F1E1E 0%, #101010 100%);
+    color: var(--text-color);
+    height: 100vh;
+    overflow-y: hidden; /* No vertical scroll on desktop */
+    overflow-x: auto;   /* Horizontal scroll */
+    margin: 0;
+    padding: 0;
+}
+
+/* === HORIZONTAL CONTAINER === */
+.horizontal-container {
+    height: 100vh;
+    width: max-content; /* Expands to fit content */
+    display: flex;
+    flex-direction: row;
+}
+
+.section {
+    width: 100vw; /* Each section is full viewport width */
+    max-width: 70rem;
+    height: 100vh;
+    flex-shrink: 0; /* Prevent sections from shrinking */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === HERO SECTION === */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    max-width: 70rem;
+    min-width: 65rem;
+}
+
+.hero-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 2rem;
+}
+
+/* === ROTATED HEADLINE === */
+.rotated-headline {
+    font-family: var(--headline-font);
+    font-weight: 900;
+    font-size: clamp(3rem, 16vh, 10rem);
+    color: var(--text-color);
+    position: absolute;
+    bottom: 1rem;
+    left: 57rem;
+    transform-origin: bottom left;
+    transform: rotate(-90deg);
+    z-index: 1;
+    white-space: nowrap;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    opacity: 0.9;
+}
+
+/* === TWEET STYLING === */
+.tweet-container {
+    position: absolute;
+    top: 1rem;
+    left: 31rem;
+    z-index: 3;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 
+                0 71px 80px 0 rgba(0, 0, 0, 0.16), 
+                0 46.019px 46.852px 0 rgba(0, 0, 0, 0.12), 
+                0 27.348px 25.481px 0 rgba(0, 0, 0, 0.10), 
+                0 14.2px 13px 0 rgba(0, 0, 0, 0.08), 
+                0 5.785px 6.519px 0 rgba(0, 0, 0, 0.06), 
+                0 1.315px 3.148px 0 rgba(0, 0, 0, 0.04);
+}
+
+.tweet {
+    background: #ffffff;
+    border: 1px solid #e1e8ed;
+    border-radius: 12px;
+    padding: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.tweet-header {
+    margin-bottom: 12px;
+}
+
+.tweet-user {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.tweet-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tweet-user-info {
+    flex: 1;
+}
+
+.tweet-name-verified {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 2px;
+}
+
+.tweet-name {
+    font-weight: 700;
+    color: #14171a;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.verified-badge {
+    width: 16px;
+    height: 16px;
+}
+
+.tweet-handle {
+    color: #657786;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.tweet-content {
+    margin-bottom: 12px;
+}
+
+.tweet-content p {
+    color: #14171a;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.tweet-footer {
+    border-top: 1px solid #e1e8ed;
+    padding-top: 12px;
+}
+
+.tweet-time {
+    color: #657786;
+    font-size: 13px;
+    line-height: 16px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.tweet-stats {
+    display: flex;
+    gap: 16px;
+}
+
+.tweet-stat {
+    color: #657786;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 700;
+}
+
+/* === HERO IMAGE === */
+.hero-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.hero-image img {
+    width: 600px;
+    height: auto;
+    max-width: 90vw;
+    display: block;
+    /* Dark Drop Shadow */
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)) 
+            drop-shadow(0 71px 80px rgba(0, 0, 0, 0.16)) 
+            drop-shadow(0 46.019px 46.852px rgba(0, 0, 0, 0.12)) 
+            drop-shadow(0 27.348px 25.481px rgba(0, 0, 0, 0.10)) 
+            drop-shadow(0 14.2px 13px rgba(0, 0, 0, 0.08)) 
+            drop-shadow(0 5.785px 6.519px rgba(0, 0, 0, 0.06)) 
+            drop-shadow(0 1.315px 3.148px rgba(0, 0, 0, 0.04));
+}
+
+/* === SLACK SECTION === */
+.slack-section {
+    max-width: 70rem;
+    min-width: 65rem;
+}
+
+.slack-container {
+    width: 100%;
+    height: 100vh;
+    padding: 3rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.slack-headline {
+    font-family: var(--headline-font);
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 87%;
+    color: #FEFEFE;
+    margin: 0;
+    max-width: 800px;
+}
+
+.slack-layout {
+    display: flex;
+    gap: 0;
+    flex: 1;
+    min-height: 0;
+}
+
+/* === SLACK SIDEBAR === */
+.slack-sidebar {
+    width: 260px;
+    padding: 1rem 0;
+    color: #fefefe;
+    font-family: 'Lato', sans-serif;
+    border-right: 1px solid #A1A1A1;
+    flex-shrink: 0;
+}
+
+.sidebar-section {
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1rem 0.5rem 1rem;
+    color: #A1A1A1;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.sidebar-arrow {
+    font-size: 12px;
+    color: #A1A1A1;
+}
+
+.sidebar-title {
+    letter-spacing: 0.5px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    color: #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.plus-icon {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #bcabbc;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.direct-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+}
+
+.dm-user {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.dm-avatar {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.dm-name {
+    font-size: 15px;
+    margin-left: 0.5rem;
+}
+
+.channel-item {
+    padding-left: 1.25rem;
+}
+
+.channel-hash {
+    font-weight: 700;
+    margin-right: 0.25rem;
+}
+
+/* === PINNED MESSAGES === */
+.pinned-messages-container {
+    flex: 1;
+    padding: 1rem 2rem;
+    overflow-y: auto;
+    max-width: 600px
+}
+
+.pinned-message {
+    background-color: #141414;
+    border: 1px solid #A1A1A1;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Lato', sans-serif;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.pinned-header {
+    margin-bottom: 0.75rem;
+}
+
+.pinned-user {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.pinned-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.pinned-user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pinned-name {
+    font-weight: 900;
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 1.46666;
+}
+
+.pinned-time {
+    color: #A1A1A1;
+    font-size: 13px;
+    line-height: 1.38462;
+}
+
+.pinned-content {
+    margin-bottom: 0.75rem;
+}
+
+.pinned-content p {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.46666;
+    margin: 0;
+}
+
+.pinned-footer {
+    padding-top: 0.75rem;
+    text-align: right;
+}
+
+.pinned-by {
+    color: #A1A1A1;
+    font-size: 13px;
+    line-height: 1.38462;
+}
+
+/* === CHAT SECTION === */
+.chat-section {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 2rem;
+    max-width: 90rem;
+    min-width: 85rem;
+}
+
+.chat-container {
+    position: relative;
+    display: flex;
+    align-items: end;
+    gap: 0rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.dm-section {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 2rem;
+    max-width: 78rem;
+    min-width: 65rem;
+}
+
+.not-wise-section {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 2rem;
+    max-width: 68rem;
+    min-width: 65rem;
+}
+
+.everyone-fine {
+    max-width: 70rem;
+}
+
+.log-off-king {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    max-width: 60rem;
+    min-width: 45rem;
+}
+
+/* === ROTATED CHANNEL LABEL === */
+.channel-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg)  translateX(-.5rem);
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 900;
+    font-family: var(--headline-font);
+    flex-shrink: 0;
+}
+
+/* === CHAT BOX === */
+.chat-box {
+    position: relative;
+    background-color: #141414;
+    border-radius: 12px;
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+    flex: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* === DAY HEADER === */
+.day-header {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1E1E1E;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+    border: 1px solid #A1A1A1;
+}
+
+.day-chevron {
+    font-size: 10px;
+}
+
+/* === CHAT MESSAGES === */
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (max-height: 850px) {
+    .chat-messages {
+        gap: 1rem;
+    }
+}
+
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.chat-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.chat-content {
+    flex: 1;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.chat-name {
+    font-weight: 900;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1.46666;
+    font-family: var(--body-font);
+}
+
+.chat-time {
+    color: #A1A1A1;
+    font-size: 13px;
+    line-height: 1.38462;
+    font-family: var(--body-font);
+}
+
+.chat-text p {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.46666;
+    margin: 0;
+    font-family: var(--body-font);
+}
+
+/* === SYSTEM MESSAGE === */
+.system-message {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.system-message p {
+    color: #A1A1A1;
+    font-size: 13px;
+    margin: 0;
+    font-family: var(--body-font);
+}
+
+/* === NEW MESSAGE INDICATOR === */
+.new-indicator {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.new-line {
+    flex: 1;
+    height: 1px;
+    background-color: #ff4757;
+}
+
+.new-text {
+    color: #ff4757;
+    font-size: 13px;
+    font-weight: 700;
+    padding-left: 1rem;
+    font-family: var(--body-font);
+}
+
+/* === BIO SECTION === */
+.bio-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    min-width: 68rem;
+}
+
+.bio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 1200px;
+    width: 100%;
+    z-index: 1;
+}
+
+/* === BIO HEADLINE === */
+.bio-headline {
+    font-family: var(--headline-font);
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 87%;
+    color: #FEFEFE;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+
+/* === BIO CARD === */
+.bio-card {
+    background-color: #141414;
+    border: 1px solid #A1A1A1;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 
+                0 71px 80px 0 rgba(0, 0, 0, 0.16), 
+                0 46.019px 46.852px 0 rgba(0, 0, 0, 0.12), 
+                0 27.348px 25.481px 0 rgba(0, 0, 0, 0.10), 
+                0 14.2px 13px 0 rgba(0, 0, 0, 0.08), 
+                0 5.785px 6.519px 0 rgba(0, 0, 0, 0.06), 
+                0 1.315px 3.148px 0 rgba(0, 0, 0, 0.04);
+    max-width: 640px;
+    z-index: 1;
+}
+
+.mini-bio {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.bio-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.bio-text {
+    flex: 1;
+}
+
+.bio-name {
+    font-weight: 900;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 1.46666;
+    font-family: var(--body-font);
+    display: block;
+    margin-bottom: 0rem;
+}
+
+.bio-description {
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.46666;
+    margin: 0;
+    font-family: var(--body-font);
+}
+
+/* === TWEET SCREENSHOTS === */
+.tweet-screenshots {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1;
+}
+
+.tweet-screenshots .tweet {
+    max-width: 420px;
+    width: 100%;
+}
+
+/* === STATUE IMAGE === */
+.statue-image {
+    position: absolute;
+    bottom: 0;
+    right: 4rem;
+    z-index: 0;
+}
+
+.statue-image img {
+    width: 600px;
+    height: auto;
+    max-width: 90vw;
+    display: block;
+    transform: translateY(2rem);
+}
+
+/* === DM LEAK SECTION === */
+.dm-leak-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    padding-top: 2rem;
+    position: relative;
+    overflow: hidden;
+    min-width: 78rem;
+}
+
+.dm-leak-section .chat-container {
+    z-index: 1;
+}
+
+/* === DOUBLE STATUE BACKGROUND === */
+.double-statue-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    height: 100vh;
+    width: auto;
+}
+
+.double-statue-image img {
+    height: 100vh;
+    width: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* === TEMPORARY SECTION STYLING === */
+.section-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.screenshot-image img {
+    width: 480px;
+    height: auto;
+    max-width: 90vw;
+    display: block;
+    padding-left: 8rem;
+    transform: translateY(2rem);
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25)) 
+    drop-shadow(0 71px 80px rgba(0, 0, 0, 0.16)) 
+    drop-shadow(0 46.019px 46.852px rgba(0, 0, 0, 0.12)) 
+    drop-shadow(0 27.348px 25.481px rgba(0, 0, 0, 0.10)) 
+    drop-shadow(0 14.2px 13px rgba(0, 0, 0, 0.08)) 
+    drop-shadow(0 5.785px 6.519px rgba(0, 0, 0, 0.06)) 
+    drop-shadow(0 1.315px 3.148px rgba(0, 0, 0, 0.04));
+}
+
+/* === AI LAB LOGO === */
+.ai-lab-logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 9999;
+    width: 75px;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.ai-lab-logo svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.logo-main {
+    fill: #FEFEFE;
+    transition: fill 0.3s ease;
+}
+
+.logo-i {
+    fill: #32929E;
+    transition: fill 0.3s ease;
+}
+
+.ai-lab-logo:hover .logo-i {
+    fill: #4AAAB8;
+}
+
+/* === FINAL QUOTE SECTION === */
+.final-quote-section {
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    max-width: 48rem;
+}
+
+.final-quote-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.final-rotated-quote {
+    font-family: var(--headline-font);
+    font-weight: 900;
+    font-size: clamp(3rem, 11vh, 7rem);
+    color: var(--text-color);
+    position: absolute;
+    bottom: 1rem;
+    left: 20rem;
+    transform-origin: bottom left;
+    transform: rotate(-90deg);
+    z-index: 1;
+    white-space: nowrap;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    opacity: 0.9;
+}
+
+.final-rotated-quote-mobile {
+   display: none;
+}
+
+.seated-statue-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    max-width: 450px;
+    height: auto;
+}
+
+.seated-statue-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* === EMBEDDED TWEET STYLES === */
+.embedded-tweet {
+    margin-top: 0.75rem;
+    border: 1px solid #A1A1A1;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #FFFFFF;
+    max-width: 550px;
+}
+
+.embedded-tweet .tweet {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 1rem;
+    box-shadow: none;
+}
+
+.embedded-tweet .tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.embedded-tweet .tweet-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.embedded-tweet .tweet-user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.embedded-tweet .tweet-name-verified {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.embedded-tweet .tweet-name {
+    color: #1A1919;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.embedded-tweet .tweet-handle {
+    color: #666666;
+    font-size: 0.875rem;
+}
+
+.embedded-tweet .verified-badge {
+    width: 16px;
+    height: 16px;
+}
+
+.embedded-tweet .tweet-content {
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    color: #1A1919;
+}
+
+.embedded-tweet .tweet-content p {
+    margin-bottom: 0.25rem;
+    color: #1A1919;
+}
+
+.embedded-tweet .tweet-footer {
+    font-size: 0.875rem;
+    color: #666666;
+}
+
+.embedded-tweet .tweet-time {
+    font-size: 0.875rem;
+    color: #666666;
+}
+
+.embedded-tweet .tweet-stats {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.embedded-tweet .tweet-stat {
+    color: #666666;
+    font-size: 0.875rem;
+}
+
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 768px) {
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        overflow-y: auto;   /* Vertical scroll on mobile */
+        overflow-x: hidden; /* No horizontal scroll */
+        height: auto;
+    }
+    
+    .horizontal-container {
+        height: auto;
+        width: 100vw;
+        flex-direction: column; /* Stack sections vertically */
+    }
+    
+    .section {
+        min-width: 100vw !important; /* Override all desktop min-widths */
+        max-width: 100vw !important; /* Override all desktop max-widths */
+        width: 100vw;
+        height: auto;
+    }
+    
+    /* Override all section-specific min-width constraints */
+    .hero-section {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        margin-top: 10rem;
+        overflow: visible;
+    }
+    
+    .slack-section {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+    }
+    
+    .bio-section {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        flex-direction: column;
+    }
+    
+    .chat-section {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 0;
+    }
+    
+    .dm-leak-section {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .everyone-fine {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+        margin-top: -1.5rem;
+    }
+    
+    .log-off-king {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+    }
+    
+    .final-quote-section {
+        min-width: 100vw !important;
+        max-width: 100vw !important;
+    }
+    
+    .hero-content {
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .rotated-headline {
+        font-size: clamp(2rem, 18vw, 6rem);
+        transform: translateX(-50%) rotate(-90deg);
+        transform-origin: top right;
+        position: static;
+    }
+    
+    .hero-image {
+        transform: translateX(-23vw);
+        position: static;
+        margin-top: -42vw;
+    }
+    
+    .hero-image img {
+        width: 55vw;
+        max-width: 80vw;
+    }
+    
+    /* Tweet responsive styling for mobile */
+    .tweet-container {
+        position: static;
+        max-width: none;
+        margin: 0 0 2rem 0;
+        order: 3;
+    }
+    
+    .tweet {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .hero-section .tweet {
+        border-radius: 0 0 12px 12px;
+    }
+    
+    /* Slack section mobile styles */
+    .slack-section {
+        height: auto;
+    }
+    
+    .slack-container {
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+        height: auto;
+    }
+    
+    .slack-headline {
+        font-size: 2rem;
+        line-height: 95%;
+    }
+    
+    .slack-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .slack-sidebar {
+        width: 100%;
+        border-radius: 0px;
+        border-right: none;
+        border-bottom: 1px solid #A1A1A1;
+    }
+    
+    .pinned-messages-container {
+        border-radius: 8px;
+        padding: 0;
+    }
+    
+    .pinned-message {
+        padding: 0.75rem;
+    }
+    
+    .pinned-avatar {
+        width: 32px;
+        height: 32px;
+    }
+    
+    /* Chat section mobile styles */
+    .chat-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        align-items: start;
+    }
+    
+    .channel-label {
+        writing-mode: horizontal-tb;
+        text-orientation: initial;
+        transform: none;
+        text-align: left;
+        font-size: 2rem;
+    }
+    
+    .chat-box {
+        padding: 2.5rem 1rem 1rem 1rem;
+        max-width: 100%;
+    }
+    
+    .chat-avatar {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .chat-name {
+        font-size: 18px;
+    }
+
+    .screenshot-image {
+        align-self: center;
+        margin-top: 3rem;
+    }
+
+    .screenshot-image img {
+        transform: none;
+        padding: 0;
+    }
+    
+    /* Bio section mobile styles */
+    .bio-section {
+        padding: 1rem;
+    }
+    
+    .bio-container {
+        gap: 1.5rem;
+    }
+    
+    .bio-headline {
+        font-size: 2.5rem;
+        text-align: left;
+    }
+    
+    .bio-card {
+        padding: 1rem;
+        max-width: 100%;
+    }
+    
+    .mini-bio {
+        gap: 0.5rem;
+    }
+    
+    .bio-avatar {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .bio-name {
+        font-size: 18px;
+    }
+    
+    .bio-description {
+        font-size: 14px;
+    }
+    
+    .tweet-screenshots .tweet {
+        max-width: 100%;
+    }
+    
+    .statue-image {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .statue-image img {
+        width: 100%;
+        max-width: 350px;
+        transform: none;
+    }
+
+    .not-wise-section {
+        transform: translateY(-5rem);
+        z-index: 10;
+    }
+
+    .not-wise-section .channel-label {
+        padding-left: 1.5rem;
+    }
+    
+    /* DM Leak section mobile styles */
+    .dm-leak-section {
+        padding: 1rem 1rem 0 1rem;
+        align-items: center;
+    }
+
+    .dm-leak-section .chat-container {
+        padding-bottom: 0;
+    }
+
+    .dm-section {
+        transform: translateY(-5rem);
+    }
+
+    .dm-section .channel-label {
+        width: 100%;
+        text-align: center;
+        color: #141414;
+    }
+    
+    .double-statue-image {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin-top: 0rem;
+        height: auto;
+    }
+    
+    .double-statue-image img {
+        height: auto;
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    /* Embedded Tweet Mobile Styles */
+    .embedded-tweet {
+        max-width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .embedded-tweet .tweet {
+        padding: 0.75rem;
+    }
+    
+    .embedded-tweet .tweet-content {
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+    }
+    
+    .embedded-tweet .tweet-stats {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .everyone-fine .chat-container {
+        flex-direction: row;
+    }
+
+    .everyone-fine .channel-label {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg) translateX(-.5rem);
+        margin-left: -1.5rem;
+        margin-right: -1rem;
+    }
+    
+    /* Final Quote Section Mobile Styles */
+    .final-quote-section {
+        max-width: 100% !important;
+        min-width: 100vw !important;
+        padding: 1rem 1rem 0 1rem;
+    }
+
+    .final-rotated-quote {
+        display: none;
+    }
+    
+    .final-rotated-quote-mobile {
+        font-family: var(--headline-font);
+        font-weight: 900;
+        font-size: clamp(3rem, 11vh, 7rem);
+        color: #FEFEFE;
+        display: block;
+        font-size: clamp(1.5rem, 8vw, 3rem) !important;
+        text-align: left;
+        white-space: normal;
+        line-height: 1.1;
+        margin-top: 2rem;
+    }
+
+    .final-quote-content {
+        flex-direction: column;
+        padding: 0;
+        align-items: end;
+    }
+    
+    .seated-statue-image {
+        position: static;
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+        margin-top: -1rem;
+    }
+    
+    .seated-statue-image img {
+        max-width: 300px;
+        width: 100%;
+        transform: translateX(1rem);
+    }
+    
+    /* Override any container max-widths that might cause horizontal scrolling */
+    .slack-container,
+    .chat-container,
+    .bio-container,
+    .final-quote-content {
+        max-width: 100% !important;
+        min-width: auto !important;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Ensure no element causes horizontal overflow */
+    body, .horizontal-container, .section {
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    
+    /* Let the existing mobile .rotated-headline styles work properly */
+    
+    
+}

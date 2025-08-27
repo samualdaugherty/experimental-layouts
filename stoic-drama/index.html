@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoic Drama - Experimental Layout</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/stoic-drama.css">
+</head>
+<body>
+    <!-- Ai Lab Logo -->
+    <div class="ai-lab-logo">
+        <svg width="47" height="19" viewBox="0 0 47 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.303071 18.069L2.02047 0.288797H8.05159L9.73869 18.069H6.3746L6.12204 15.1999H3.98033L3.75808 18.069H0.303071ZM4.23289 12.3611H5.84927L5.07139 3.31951H4.90975L4.23289 12.3611ZM19.5695 18.069V0.288797H23.1255V15.0383H26.7826V18.069H19.5695ZM27.3079 18.069L29.0253 0.288797H35.0564L36.7435 18.069H33.3794L33.1269 15.1999H30.9852L30.7629 18.069H27.3079ZM31.2377 12.3611H32.8541L32.0762 3.31951H31.9146L31.2377 12.3611ZM37.8346 18.069V0.288797H42.6534C43.9465 0.288797 44.886 0.605338 45.472 1.23842C46.0647 1.86477 46.361 2.90194 46.361 4.34995V5.12783C46.361 5.96296 46.2095 6.63982 45.9064 7.15841C45.61 7.677 45.1554 8.01711 44.5426 8.17875C45.344 8.3808 45.8794 8.85561 46.1488 9.60318C46.425 10.344 46.563 11.2499 46.563 12.3207C46.563 13.4724 46.4553 14.4793 46.2398 15.3413C46.0242 16.2034 45.6336 16.8735 45.0679 17.3517C44.5022 17.8299 43.6973 18.069 42.6534 18.069H37.8346ZM41.3098 6.98667H42.0372C42.3672 6.98667 42.5793 6.85871 42.6736 6.60278C42.7679 6.34685 42.8151 6.04041 42.8151 5.68346V3.89534C42.8151 3.32288 42.5625 3.03664 42.0574 3.03664H41.3098V6.98667ZM41.6634 14.9372C42.5861 14.9372 43.0474 14.4995 43.0474 13.6239V11.4014C43.0474 10.8963 42.97 10.4989 42.8151 10.2093C42.6669 9.91299 42.384 9.76482 41.9665 9.76482H41.3098V14.917C41.458 14.9305 41.5758 14.9372 41.6634 14.9372Z" fill="#FEFEFE" class="logo-main"/>
+            <path d="M10.5886 5.63147V3.30334H13.3855V5.63147H10.5886ZM10.5886 18.069V6.35022H13.3855V18.069H10.5886Z" fill="#32929E" class="logo-i"/>
+        </svg>
+    </div>
+
+    <div class="horizontal-container">
+        <!-- Hero Section -->
+        <section class="section hero-section">
+            <div class="hero-content">
+                <!-- Seneca's Tweet -->
+                <div class="tweet-container">
+                    <div class="tweet">
+                        <div class="tweet-header">
+                            <div class="tweet-user">
+                                <img src="../images/seneca-avatar.png" alt="Seneca" class="tweet-avatar">
+                                <div class="tweet-user-info">
+                                    <div class="tweet-name-verified">
+                                        <span class="tweet-name">Seneca</span>
+                                        <img src="../images/Twitter_Verified_Badge.png" alt="Verified" class="verified-badge">
+                                    </div>
+                                    <span class="tweet-handle">@Big_Seneca</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tweet-content">
+                            <p>Which one of you assholes did this? I said "How does it help to make troubles heavier by bemoaning them?" You can't just say "make troubles heavier"! You're misquoting me, vlaka!</p>
+                        </div>
+                        
+                        <div class="tweet-footer">
+                            <span class="tweet-time">9:36 PM - August 18, 63 - Twitter Web App</span>
+                            <div class="tweet-stats">
+                                <span class="tweet-stat">1 Like</span>
+                                <span class="tweet-stat">4 Retweets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rotated Headline (behind image) -->
+                <h1 class="rotated-headline">Make<br />Troubles<br />Heavier.</h1>
+                
+                <!-- Main Image -->
+                <div class="hero-image">
+                    <img src="../images/frustrated-bust.png" alt="Frustrated bust sculpture">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 2: Slack Group Chat -->
+        <section class="section slack-section">
+            <div class="slack-container">
+                <!-- Two-column spanning headline -->
+                <h2 class="slack-headline">Everyone is a stoic until they suffer through a group chat</h2>
+                
+                <!-- Two column layout -->
+                <div class="slack-layout">
+                    <!-- Left: Slack Sidebar -->
+                    <div class="slack-sidebar">
+                        <div class="sidebar-section">
+                            <div class="sidebar-header">
+                                <span class="sidebar-arrow">▼</span>
+                                <span class="sidebar-title">Channels</span>
+                            </div>
+                            <div class="sidebar-item channel-item">
+                                <span class="channel-hash">#</span>
+                                <span>Broicism</span>
+                            </div>
+                            <div class="sidebar-item channel-item">
+                                <span class="channel-hash">#</span>
+                                <span>Memento-Messy</span>
+                            </div>
+                            <div class="sidebar-item add-channels">
+                                <span class="plus-icon">+</span>
+                                <span>Add channels</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-section">
+                            <div class="sidebar-header">
+                                <span class="sidebar-arrow">▼</span>
+                                <span class="sidebar-title">Direct messages</span>
+                            </div>
+                            
+                            <div class="direct-messages">
+                                <div class="dm-user">
+                                    <img src="../images/Marcus_A.png" alt="Marcus_A" class="dm-avatar">
+                                    <span class="dm-name">Marcus_A</span>
+                                </div>
+                                <div class="dm-user">
+                                    <img src="../images/seneca-avatar.png" alt="Big_Seneca" class="dm-avatar">
+                                    <span class="dm-name">Big_Seneca</span>
+                                </div>
+                                <div class="dm-user">
+                                    <img src="../images/Cleanthes_is_typing.png" alt="Cleanthes_is_typing" class="dm-avatar">
+                                    <span class="dm-name">Cleanthes_is_typing</span>
+                                </div>
+                                <div class="dm-user">
+                                    <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="dm-avatar">
+                                    <span class="dm-name">EpicTweetus</span>
+                                </div>
+                                <div class="dm-user">
+                                    <img src="../images/PORTICO_BOT.png" alt="PORTICO_BOT" class="dm-avatar">
+                                    <span class="dm-name">PORTICO_BOT</span>
+                                </div>
+                            </div>
+                            
+                            <div class="sidebar-item invite-people">
+                                <span class="plus-icon">+</span>
+                                <span>Invite people</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Pinned Messages -->
+                    <div class="pinned-messages-container">
+                        <!-- Pinned message component will go here -->
+                        <div class="pinned-message">
+                            <div class="pinned-header">
+                                <div class="pinned-user">
+                                    <img src="../images/seneca-avatar.png" alt="Big_Seneca" class="pinned-avatar">
+                                    <div class="pinned-user-info">
+                                        <span class="pinned-name">Big_Seneca</span>
+                                        <span class="pinned-time">July 13th, 63 at 11:04 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pinned-content">
+                                <p>We are often more frightened than angry. We suffer more in imagination than we do in the group chat.</p>
+                            </div>
+                            
+                            <div class="pinned-footer">
+                                <span class="pinned-by">Pinned by Big_Seneca</span>
+                            </div>
+                        </div>
+
+                        <div class="pinned-message">
+                            <div class="pinned-header">
+                                <div class="pinned-user">
+                                    <img src="../images/Marcus_A.png" alt="Marcus_A" class="pinned-avatar">
+                                    <div class="pinned-user-info">
+                                        <span class="pinned-name">Marcus_A</span>
+                                        <span class="pinned-time">August 7th, 63 at 12:36 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pinned-content">
+                                <p>Waste no more time arguing about what a good man should be. Be one.</p>
+                            </div>
+                            
+                            <div class="pinned-footer">
+                                <span class="pinned-by">Pinned by EpicTweetus (who definitely meant it)</span>
+                            </div>
+                        </div>
+
+                        <div class="pinned-message">
+                            <div class="pinned-header">
+                                <div class="pinned-user">
+                                    <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="pinned-avatar">
+                                    <div class="pinned-user-info">
+                                        <span class="pinned-name">EpicTweetus</span>
+                                        <span class="pinned-time">January 1st, 62 at 12:07 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pinned-content">
+                                <p>Nero just said, “I'm not mad, I'm merely practicing apatheia in an elevated way.” Does anyone even listen to this guy?</p>
+                            </div>
+                            
+                            <div class="pinned-footer">
+                                <span class="pinned-by">Pinned by Nero_the_Hero</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: Slack Chat Screenshot -->
+        <section class="section chat-section">
+            <div class="chat-container">
+                <!-- Rotated Channel Label -->
+                <div class="channel-label">
+                    <span>#Memento-Messy</span>
+                </div>
+                
+                <!-- Chat Box with Day Header -->
+                <div class="chat-box">
+                    <!-- Day Header (overlaps chatbox) -->
+                    <div class="day-header">
+                        <span>Monday</span>
+                        <span class="day-chevron">▼</span>
+                    </div>
+                    
+                    <!-- Chat Messages Container -->
+                    <div class="chat-messages">
+                        <!-- Message 1: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">08:11 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>morning, kings. quick vibe check. court was chaos. i am once again asking for mutual serenity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 2: Big_Seneca -->
+                        <div class="chat-message">
+                            <img src="../images/seneca-avatar.png" alt="Big_Seneca" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Big_Seneca</span>
+                                    <span class="chat-time">08:12 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>Sending love. Also, reminder: "We suffer more often in imagination than in reality." — Seneca (me). So like, breathe?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- System Message -->
+                        <div class="system-message">
+                            <p><em>[08:12] EpicTweetus muted the chat for one hour</em></p>
+                        </div>
+                        
+                        <!-- Message 3: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">08:13 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>incredible support as always</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 4: Big_Seneca -->
+                        <div class="chat-message">
+                            <img src="../images/seneca-avatar.png" alt="Big_Seneca" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Big_Seneca</span>
+                                    <span class="chat-time">08:13 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>sorry, wasn't done: "It is not that we have a short time to live, but that we waste much of it." so maybe stop doomscrolling the senate?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 5: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">08:15 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>noted. also, totally random: who added nero to close friends??</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 6: PORTICO_BOT -->
+                        <div class="chat-message">
+                            <img src="../images/PORTICO_BOT.png" alt="PORTICO_BOT" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">PORTICO_BOT</span>
+                                    <span class="chat-time">08:15 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>Topic changed to <em>"No Discourse About Nero Until Coffee"</em> by Big_Seneca</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- New Message Indicator -->
+                        <div class="new-indicator">
+                            <div class="new-line"></div>
+                            <span class="new-text">New</span>
+                        </div>
+                        
+                        <!-- Message 7: EpicTweetus (after new line) -->
+                        <div class="chat-message">
+                            <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">EpicTweetus</span>
+                                    <span class="chat-time">08:16 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>lmao</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="screenshot-image">
+                <img src="../images/apology-epictetus.png" alt="Apology to Epictetus">
+            </div>
+        </section>
+        
+        <!-- Section 4: Don't DM Marcus Chat -->
+        <section class="section dm-section">
+            <div class="chat-container">
+                <!-- Rotated Channel Label -->
+                <div class="channel-label">
+                    <span>#Don't DM Marcus</span>
+                </div>
+                
+                <!-- Chat Box with Day Header -->
+                <div class="chat-box">
+                    <!-- Day Header (overlaps chatbox) -->
+                    <div class="day-header">
+                        <span>Tuesday</span>
+                        <span class="day-chevron">▼</span>
+                    </div>
+                    
+                    <!-- Chat Messages Container -->
+                    <div class="chat-messages">
+                        <!-- Message 1: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">09:02 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>ok but seneca is doing that thing again—performing calm while being a menace</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 2: EpicTweetus -->
+                        <div class="chat-message">
+                            <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">EpicTweetus</span>
+                                    <span class="chat-time">09:03 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>"Don't explain your philosophy. Embody it." — Epictetus</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 3: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">09:03 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>i hate when you cite you</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 4: EpicTweetus -->
+                        <div class="chat-message">
+                            <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">EpicTweetus</span>
+                                    <span class="chat-time">09:05 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>then embody it 😂</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 5: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">09:05 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>btw don't tell him i said that</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- System Message -->
+                        <div class="system-message">
+                            <p><em>[09:06 AM] EpicTweetus forwarded this message to Big_Seneca</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 5: Mini Bios -->
+        <section class="section bio-section">
+            <div class="bio-container">
+                <!-- Headline spans full width -->
+                <h2 class="bio-headline">Mini Bios, Maximum Petty</h2>
+                
+                <!-- Single Bio Card with all 4 mini bios -->
+                <div class="bio-card">
+                    <!-- Marcus Bio -->
+                    <div class="mini-bio">
+                        <img src="../images/Marcus_A.png" alt="Marcus_A" class="bio-avatar">
+                        <div class="bio-text">
+                            <span class="bio-name">Marcus</span>
+                            <p class="bio-description">Journaling app power user. apologizes in paragraph form.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Seneca Bio -->
+                    <div class="mini-bio">
+                        <img src="../images/seneca-avatar.png" alt="Seneca" class="bio-avatar">
+                        <div class="bio-text">
+                            <span class="bio-name">Seneca</span>
+                            <p class="bio-description">Posts three-slide carousels about boundaries, then texts at 2:03am "u up?"</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Epictetus Bio -->
+                    <div class="mini-bio">
+                        <img src="../images/EpicTweetus.png" alt="Epictetus" class="bio-avatar">
+                        <div class="bio-text">
+                            <span class="bio-name">Epictetus</span>
+                            <p class="bio-description">Will end your TED Talk with one sentence and a shrug.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Cleanthes Bio -->
+                    <div class="mini-bio">
+                        <img src="../images/Cleanthes_is_typing.png" alt="Cleanthes" class="bio-avatar">
+                        <div class="bio-text">
+                            <span class="bio-name">Cleanthes</span>
+                            <p class="bio-description">Ghost follower; when he comments, you log off.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tweet Components -->
+                <div class="tweet-screenshots">
+                    <!-- Marcus Tweet -->
+                    <div class="tweet">
+                        <div class="tweet-header">
+                            <div class="tweet-user">
+                                <img src="../images/Marcus_A.png" alt="Marcus" class="tweet-avatar">
+                                <div class="tweet-user-info">
+                                    <div class="tweet-name-verified">
+                                        <span class="tweet-name">Marcus</span>
+                                    </div>
+                                    <span class="tweet-handle">@Marcus_A</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tweet-content">
+                            <p>I commissioned a statue of me so they remember what I looked like for all of history.</p>
+                        </div>
+                        
+                        <div class="tweet-footer">
+                            <span class="tweet-time">9:36 PM - August 21, 63 - Twitter Web App</span>
+                            <div class="tweet-stats">
+                                <span class="tweet-stat">3 Like</span>
+                                <span class="tweet-stat">0 Retweets</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- EpicTweetus Tweet -->
+                    <div class="tweet">
+                        <div class="tweet-header">
+                            <div class="tweet-user">
+                                <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="tweet-avatar">
+                                <div class="tweet-user-info">
+                                    <div class="tweet-name-verified">
+                                        <span class="tweet-name">EpicTweetus</span>
+                                    </div>
+                                    <span class="tweet-handle">@EpicTweetus</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tweet-content">
+                            <p>Does it actually look like you, or did you tell them to make you look yoked, because you haven't thought your way out of an ego yet?</p>
+                        </div>
+                        
+                        <div class="tweet-footer">
+                            <span class="tweet-time">10:37 PM - August 21, 63 - Replies Disabled</span>
+                            <div class="tweet-stats">
+                                <span class="tweet-stat">0 Like</span>
+                                <span class="tweet-stat">0 Retweets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Marcus Statue - Absolutely positioned -->
+                <div class="statue-image">
+                    <img src="../images/marcus-statue.png" alt="Marcus Aurelius Statue">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 6: Seen But Not Wise Chat -->
+        <section class="section not-wise-section">
+            <div class="chat-container">
+                <!-- Rotated Channel Label -->
+                <div class="channel-label">
+                    <span>#Seen But Not Wise</span>
+                </div>
+                
+                <!-- Chat Box with Day Header -->
+                <div class="chat-box">
+                    <!-- Day Header (overlaps chatbox) -->
+                    <div class="day-header">
+                        <span>Thursday</span>
+                        <span class="day-chevron">▼</span>
+                    </div>
+                    
+                    <!-- Chat Messages Container -->
+                    <div class="chat-messages">
+                        <!-- Message 1: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">07:56 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>ok updated plan for my entire life: breathe, remember i'm dust, send nice emails</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 2: Big_Seneca -->
+                        <div class="chat-message">
+                            <img src="../images/seneca-avatar.png" alt="Big_Seneca" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Big_Seneca</span>
+                                    <span class="chat-time">08:00 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>"It is not death that a man should fear, but never beginning to live." — Marcus (your words again, sorry they slap)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 3: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">08:00 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>bro</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 4: EpicTweetus -->
+                        <div class="chat-message">
+                            <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">EpicTweetus</span>
+                                    <span class="chat-time">08:01 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>"If someone can show me that what I think or do is not right, I will gladly change." — Marcus Aurelius</p>
+                                    <p>So change?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 5: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">08:01 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>stunned by the brevity violence</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 6: EpicTweetus -->
+                        <div class="chat-message">
+                            <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">EpicTweetus</span>
+                                    <span class="chat-time">08:03 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>Don't be mad.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- System Message -->
+                        <div class="system-message">
+                            <p><em>[08:03 AM] Macus_A deleted a message</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 7: DM Leak -->
+        <section class="section dm-leak-section">
+            <div class="chat-container">
+                <!-- Rotated Channel Label -->
+                <div class="channel-label">
+                    <span>#DM Leak</span>
+                </div>
+                
+                <!-- Chat Box with Day Header -->
+                <div class="chat-box">
+                    <!-- Day Header (overlaps chatbox) -->
+                    <div class="day-header">
+                        <span>Thursday</span>
+                        <span class="day-chevron">▼</span>
+                    </div>
+                    
+                    <!-- Chat Messages Container -->
+                    <div class="chat-messages">
+                        <!-- Message 1: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">08:00 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>if seneca quotes myself at me again i'm going to compose three tragedies</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 2: Cleanthes_is_typing -->
+                        <div class="chat-message">
+                            <img src="../images/Cleanthes_is_typing.png" alt="Cleanthes_is_typing" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Cleanthes_is_typing</span>
+                                    <span class="chat-time">09:19 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>You could log off.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 3: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">09:19 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>wow brutal. anyway, i'm fine. just need him to stop feeling feelings at me</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 4: Cleanthes_is_typing -->
+                        <div class="chat-message">
+                            <img src="../images/Cleanthes_is_typing.png" alt="Cleanthes_is_typing" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Cleanthes_is_typing</span>
+                                    <span class="chat-time">05:46 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>Feelings are data. You say you love data.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 5: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">08:17 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>whoa. ok. noted. will channel into a newsletter</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- System Message -->
+                        <div class="system-message">
+                            <p><em>[09:06 AM] Claenthes_is_typing muted notifications in this chat</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Background Double Statue -->
+            <div class="double-statue-image">
+                <img src="../images/double-statue.png" alt="Double Statue">
+            </div>
+        </section>
+        
+        <!-- Section 8: Everyone is Fine Chat -->
+        <section class="section chat-section everyone-fine">
+            <div class="chat-container">
+                <!-- Rotated Channel Label -->
+                <div class="channel-label">
+                    <span>#Everyone is Fine</span>
+                </div>
+                
+                <!-- Chat Box with Day Header -->
+                <div class="chat-box">
+                    <!-- Day Header (overlaps chatbox) -->
+                    <div class="day-header">
+                        <span>Today</span>
+                        <span class="day-chevron">▼</span>
+                    </div>
+                    
+                    <!-- Chat Messages Container -->
+                    <div class="chat-messages">
+                        <!-- Message 1: Big_Seneca -->
+                        <div class="chat-message">
+                            <img src="../images/seneca-avatar.png" alt="Big_Seneca" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Big_Seneca</span>
+                                    <span class="chat-time">11:13 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>ok real talk everyone seems a little...tense</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 2: EpicTweetus -->
+                        <div class="chat-message">
+                            <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">EpicTweetus</span>
+                                    <span class="chat-time">11:14 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>maybe because everyone keeps getting dunked on by their own quotes</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 3: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">11:14 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>we need like a safe word for when someone is quoting us at ourselves</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 4: Cleanthes_is_typing -->
+                        <div class="chat-message">
+                            <img src="../images/Cleanthes_is_typing.png" alt="Cleanthes_is_typing" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Cleanthes_is_typing</span>
+                                    <span class="chat-time">11:15 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>Virtue.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 5: Big_Seneca -->
+                        <div class="chat-message">
+                            <img src="../images/seneca-avatar.png" alt="Big_Seneca" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Big_Seneca</span>
+                                    <span class="chat-time">11:16 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>that's like...our whole thing though</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 6: EpicTweetus -->
+                        <div class="chat-message">
+                            <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">EpicTweetus</span>
+                                    <span class="chat-time">11:16 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>exactly</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 7: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">11:17 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>ok but like can we pick literally any other word</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 8: PORTICO_BOT -->
+                        <div class="chat-message">
+                            <img src="../images/PORTICO_BOT.png" alt="PORTICO_BOT" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">PORTICO_BOT</span>
+                                    <span class="chat-time">11:18 AM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>Safe word updated to "pineapple"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 9: Log off, king Chat -->
+        <section class="section chat-section log-off-king">
+            <div class="chat-container">
+                <!-- Rotated Channel Label -->
+                <div class="channel-label">
+                    <span>#Log off, king</span>
+                </div>
+                
+                <!-- Chat Box with Day Header -->
+                <div class="chat-box">
+                    <!-- Day Header (overlaps chatbox) -->
+                    <div class="day-header">
+                        <span>Today</span>
+                        <span class="day-chevron">▼</span>
+                    </div>
+                    
+                    <!-- Chat Messages Container -->
+                    <div class="chat-messages">
+                        <!-- Message 1: EpicTweetus with embedded tweet -->
+                        <div class="chat-message">
+                            <img src="../images/EpicTweetus.png" alt="EpicTweetus" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">EpicTweetus</span>
+                                    <span class="chat-time">09:56 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>Pretty sure Seneca broke all 5 of these, just this week. Is he being serious?</p>
+                                    
+                                    <!-- Embedded Tweet -->
+                                    <div class="embedded-tweet">
+                                        <div class="tweet">
+                                            <div class="tweet-header">
+                                                <img src="../images/seneca-avatar.png" alt="Seneca" class="tweet-avatar">
+                                                <div class="tweet-user-info">
+                                                    <div class="tweet-name-verified">
+                                                        <span class="tweet-name">Seneca</span>
+                                                        <img src="../images/Twitter_Verified_Badge.png" alt="Verified" class="verified-badge">
+                                                    </div>
+                                                    <span class="tweet-handle">@Big_Seneca</span>
+                                                </div>
+                                            </div>
+                                            <div class="tweet-content">
+                                                <p>Seneca's Rules for Inner Peace:</p>
+                                                <p>1. Don't thirst-post.</p>
+                                                <p>2. Don't clap back after sunset.</p>
+                                                <p>3. Don't monetize an apology.</p>
+                                                <p>4. Don't quote yourself in the third person.</p>
+                                                <p>5. Do not, under any circumstances, add Nero to Close Friends again.</p>
+                                            </div>
+                                            <div class="tweet-footer">
+                                                <span class="tweet-time">11:31 AM · August 22, 63 · Twitter Web App</span>
+                                                <div class="tweet-stats">
+                                                    <span class="tweet-stat">2 Likes</span>
+                                                    <span class="tweet-stat">3 Retweets</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 2: Marcus_A -->
+                        <div class="chat-message">
+                            <img src="../images/Marcus_A.png" alt="Marcus_A" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Marcus_A</span>
+                                    <span class="chat-time">09:58 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>yeah that sounds about right</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 3: Big_Seneca -->
+                        <div class="chat-message">
+                            <img src="../images/seneca-avatar.png" alt="Big_Seneca" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">Big_Seneca</span>
+                                    <span class="chat-time">09:58 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>"Choose not to be harmed — and you won't feel harmed. Don't feel harmed — and you haven't been." - Marcus Aurelius</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Message 4: PORTICO_BOT -->
+                        <div class="chat-message">
+                            <img src="../images/PORTICO_BOT.png" alt="PORTICO_BOT" class="chat-avatar">
+                            <div class="chat-content">
+                                <div class="chat-header">
+                                    <span class="chat-name">PORTICO_BOT</span>
+                                    <span class="chat-time">09:59 PM</span>
+                                </div>
+                                <div class="chat-text">
+                                    <p>New topic suggestion: "Practice privately. Post less. Touch grass."</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- System Message -->
+                        <div class="system-message">
+                            <p><em>[09:59 PM] PORTICO_BOT locked the chat until after the drama</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 10: Final Quote -->
+        <section class="section final-quote-section">
+            <div class="final-quote-content">
+                <!-- Rotated Quote -->
+                <div class="final-rotated-quote">
+                    Don't explain<br />your philosophy.<br />Embody it.
+                </div>
+                <div class="final-rotated-quote-mobile">
+                    Don't explain your philosophy. Embody it.
+                </div>
+                
+                <!-- Seated Statue Image -->
+                <div class="seated-statue-image">
+                    <img src="../images/seated-statue.png" alt="Seated Statue">
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script src="js/stoic-drama.js"></script>
+</body>
+</html>

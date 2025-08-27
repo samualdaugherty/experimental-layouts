@@ -4,6 +4,41 @@
   --color-accent: #E72C1E;
 }
 
+header {
+  height: 72px;
+}
+
+/* === AI LAB LOGO === */
+.ai-lab-logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 9999;
+    width: 75px;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.ai-lab-logo svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.logo-main {
+    fill: #0D0E0E;
+    transition: fill 0.3s ease;
+}
+
+.logo-i {
+    fill: #EA4843;
+    transition: fill 0.3s ease;
+}
+
+.ai-lab-logo:hover .logo-i {
+    fill: #C73E3A;
+}
+
 /* Logo color override for this page only */
 .logo-svg path:first-child {
   fill: #E72C1E;
