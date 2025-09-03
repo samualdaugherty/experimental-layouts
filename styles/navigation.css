@@ -1,0 +1,273 @@
+/* === GLOBAL NAVIGATION === */
+
+/* Navigation Base Styles */
+.global-nav {
+  position: relative;
+  z-index: 10000;
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10001;
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center;
+}
+
+.hamburger-btn:hover .hamburger-line {
+  width: 30px;
+}
+
+.hamburger-btn:hover .hamburger-line:nth-child(1) {
+  transform: translateX(-3px);
+}
+
+.hamburger-btn:hover .hamburger-line:nth-child(3) {
+  transform: translateX(3px);
+}
+
+/* Overlay Styles */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  pointer-events: none;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.nav-overlay-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Close Button */
+.nav-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10001;
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-close-line {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-close-line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.nav-close-line:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+.nav-close-btn:hover .nav-close-line {
+  width: 30px;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link-number {
+  display: block;
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-link-text {
+  display: block;
+  font-family: 'Anton', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-link-subtitle {
+  display: block;
+  font-family: 'Anybody', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.8;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Hover Effects */
+.nav-link:hover .nav-link-number {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+.nav-link:hover .nav-link-text {
+  transform: translateY(-10px) scale(1.05);
+}
+
+.nav-link:hover .nav-link-subtitle {
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+/* Active Page Indicator */
+.nav-link.active .nav-link-text {
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+}
+
+/* Footer */
+.nav-footer {
+  position: absolute;
+  bottom: 2rem;
+  text-align: center;
+}
+
+.nav-footer-text {
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-size: 1rem;
+  opacity: 0.6;
+  line-height: 1.4;
+}
+
+/* Page-specific colors */
+
+/* Intro page (yellow accent) */
+body[data-page="intro"] .nav-overlay {
+  background: #FDC628;
+  color: #0D0E0E;
+}
+
+body[data-page="intro"] .hamburger-btn {
+  color: #0D0E0E;
+}
+
+/* Algorithm page (red accent) */
+body[data-page="algorithm"] .nav-overlay {
+  background: #EA4843;
+  color: #FEFEFE;
+}
+
+body[data-page="algorithm"] .hamburger-btn {
+  color: #0D0E0E;
+}
+
+/* Stoic Drama page (teal accent) */
+body[data-page="stoic-drama"] .nav-overlay {
+  background: #32929E;
+  color: #FEFEFE;
+}
+
+body[data-page="stoic-drama"] .hamburger-btn {
+  color: #FEFEFE;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .hamburger-btn,
+  .nav-close-btn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .nav-links {
+    gap: 2rem;
+  }
+  
+  .nav-link-text {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+  
+  .nav-link-subtitle {
+    font-size: 1rem;
+  }
+  
+  .nav-overlay-content {
+    padding: 1rem;
+  }
+}
+
+/* Ultra-small screens */
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 1.5rem;
+  }
+  
+  .nav-link-number {
+    font-size: 0.9rem;
+  }
+  
+  .nav-footer {
+    bottom: 1rem;
+  }
+  
+  .nav-footer-text {
+    font-size: 0.9rem;
+  }
+}

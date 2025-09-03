@@ -12,8 +12,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="styles/intro.css" />
+    <link rel="stylesheet" href="styles/navigation.css" />
   </head>
-  <body class="bg-[#FEFEFE] text-[#0D0E0E] antialiased">
+  <body class="bg-[#FEFEFE] text-[#0D0E0E] antialiased" data-page="intro">
     
     <header class="w-full">
       <!-- Ai Lab Logo -->
@@ -23,6 +24,53 @@
             <path d="M10.5886 5.63147V3.30334H13.3855V5.63147H10.5886ZM10.5886 18.069V6.35022H13.3855V18.069H10.5886Z" fill="#FDC628" class="logo-i"/>
         </svg>
       </div>
+
+      <!-- Global Navigation Component -->
+      <nav class="global-nav">
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Open Navigation">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+
+        <!-- Full Page Overlay -->
+        <div class="nav-overlay" id="nav-overlay">
+          <div class="nav-overlay-content">
+            <!-- Close Button -->
+            <button class="nav-close-btn" id="nav-close-btn" aria-label="Close Navigation">
+              <span class="nav-close-line"></span>
+              <span class="nav-close-line"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="nav-links">
+              <a href="/" class="nav-link" data-page="intro">
+                <span class="nav-link-number">01</span>
+                <span class="nav-link-text">EXPERI-MENTAL</span>
+                <span class="nav-link-subtitle">One man's questionable decision</span>
+              </a>
+              
+              <a href="/algorithm/" class="nav-link" data-page="algorithm">
+                <span class="nav-link-number">02</span>
+                <span class="nav-link-text">SAD ALGORITHM</span>
+                <span class="nav-link-subtitle">When AI gets the blues</span>
+              </a>
+              
+              <a href="/stoic-drama/" class="nav-link" data-page="stoic-drama">
+                <span class="nav-link-number">03</span>
+                <span class="nav-link-text">STOIC DRAMA</span>
+                <span class="nav-link-subtitle">Ancient wisdom, modern chaos</span>
+              </a>
+            </div>
+
+            <!-- Bottom Text -->
+            <div class="nav-footer">
+              <p class="nav-footer-text">Breaking rules since<br><strong>2025</strong></p>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
 
         <main id="main" class="relative">
@@ -61,5 +109,6 @@
 
     <script src="js/text-flow-intro.js"></script>
     <script src="js/intro.js"></script>
+    <script src="js/navigation.js"></script>
   </body>
   </html>
