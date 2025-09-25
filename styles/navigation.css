@@ -229,6 +229,16 @@ body[data-page="stoic-drama"] .hamburger-btn {
   color: #FEFEFE;
 }
 
+/* How We Did It page (orange accent) */
+body[data-page="how-we-did-it"] .nav-overlay {
+  background: #f25531;
+  color: #FEFEFE;
+}
+
+body[data-page="how-we-did-it"] .hamburger-btn {
+  color: #0D0E0E;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
   .hamburger-btn,

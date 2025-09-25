@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How We Did It - Print Layouts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=B612+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/how-we-did-it.css">
+    <link rel="stylesheet" href="../styles/navigation.css">
+</head>
+<body data-page="how-we-did-it">
+    <!-- AI Lab Logo -->
+    <div class="ai-lab-logo">
+        <svg viewBox="0 0 47 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.303071 18.069L2.02047 0.288797H8.05159L9.73869 18.069H6.3746L6.12204 15.1999H3.98033L3.75808 18.069H0.303071ZM4.23289 12.3611H5.84927L5.07139 3.31951H4.90975L4.23289 12.3611ZM19.5695 18.069V0.288797H23.1255V15.0383H26.7826V18.069H19.5695ZM27.3079 18.069L29.0253 0.288797H35.0564L36.7435 18.069H33.3794L33.1269 15.1999H30.9852L30.7629 18.069H27.3079ZM31.2377 12.3611H32.8541L32.0762 3.31951H31.9146L31.2377 12.3611ZM37.8346 18.069V0.288797H42.6534C43.9465 0.288797 44.886 0.605338 45.472 1.23842C46.0647 1.86477 46.361 2.90194 46.361 4.34995V5.12783C46.361 5.96296 46.2095 6.63982 45.9064 7.15841C45.61 7.677 45.1554 8.01711 44.5426 8.17875C45.344 8.3808 45.8794 8.85561 46.1488 9.60318C46.425 10.344 46.563 11.2499 46.563 12.3207C46.563 13.4724 46.4553 14.4793 46.2398 15.3413C46.0242 16.2034 45.6336 16.8735 45.0679 17.3517C44.5022 17.8299 43.6973 18.069 42.6534 18.069H37.8346ZM41.3098 6.98667H42.0372C42.3672 6.98667 42.5793 6.85871 42.6736 6.60278C42.7679 6.34685 42.8151 6.04041 42.8151 5.68346V3.89534C42.8151 3.32288 42.5625 3.03664 42.0574 3.03664H41.3098V6.98667ZM41.6634 14.9372C42.5861 14.9372 43.0474 14.4995 43.0474 13.6239V11.4014C43.0474 10.8963 42.97 10.4989 42.8151 10.2093C42.6669 9.91299 42.384 9.76482 41.9665 9.76482H41.3098V14.917C41.458 14.9305 41.5758 14.9372 41.6634 14.9372Z" fill="#0D0E0E" class="logo-main"/>
+            <path d="M10.5886 5.63147V3.30334H13.3855V5.63147H10.5886ZM10.5886 18.069V6.35022H13.3855V18.069H10.5886Z" fill="#f25531" class="logo-i"/>
+        </svg>
+    </div>
+
+    <!-- Global Navigation -->
+    <nav class="global-nav">
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Open navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        
+        <div class="nav-overlay" id="nav-overlay">
+            <div class="nav-overlay-content">
+                <button class="nav-close-btn" id="nav-close-btn" aria-label="Close navigation">
+                    <span class="nav-close-line"></span>
+                    <span class="nav-close-line"></span>
+                </button>
+                
+                <div class="nav-links">
+                    <a href="../index.html" class="nav-link" data-page="intro">
+                        <span class="nav-link-number">01</span>
+                        <span class="nav-link-text">Introduction</span>
+                        <span class="nav-link-subtitle">Print layouts on the web</span>
+                    </a>
+                    <a href="../algorithm/index.html" class="nav-link" data-page="algorithm">
+                        <span class="nav-link-number">02</span>
+                        <span class="nav-link-text">Algorithm Sadness</span>
+                        <span class="nav-link-subtitle">When technology hurts</span>
+                    </a>
+                    <a href="../stoic-drama/index.html" class="nav-link" data-page="stoic-drama">
+                        <span class="nav-link-number">03</span>
+                        <span class="nav-link-text">Stoic Drama</span>
+                        <span class="nav-link-subtitle">Ancient wisdom meets modern problems</span>
+                    </a>
+                    <a href="./index.html" class="nav-link" data-page="how-we-did-it">
+                        <span class="nav-link-number">04</span>
+                        <span class="nav-link-text">How We Did It</span>
+                        <span class="nav-link-subtitle">A technical deep dive</span>
+                    </a>
+                </div>
+                
+                <div class="nav-footer">
+                    <span class="nav-footer-text">Experimental layouts by AI Lab</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Single Section with Multiple Columns -->
+        <section class="content-section">
+            <!-- Code Sidebar with Logo -->
+            <div class="code-sidebar">
+                <div class="code-text">
+                    <span class="keyword">const</span> regions <span class="operator">=</span> <span class="function">getRegionsInOrder</span>();
+                </div>
+            </div>
+            
+            <!-- Background Code Top -->
+            <div class="background-code background-code-top">
+                <div class="code-content">
+                    <p><span class="keyword">function</span> <span class="function">flowContent</span>() {</p>
+                    <p>  <span class="keyword">const</span> regions <span class="operator">=</span> <span class="function">getRegionsInOrder</span>();</p>
+                    <p>  <span class="keyword">let</span> remainingBlocks <span class="operator">=</span> [<span class="operator">...</span>contentBlocks];</p>
+                    <p></p>
+                    <p>  regions.<span class="function">forEach</span>(region <span class="operator">=></span> {</p>
+                    <p>    <span class="keyword">let</span> availableHeight <span class="operator">=</span> region.clientHeight;</p>
+                    <p>    <span class="keyword">let</span> usedHeight <span class="operator">=</span> <span class="number">0</span>;</p>
+                    <p>    <span class="keyword">let</span> fittedBlocks <span class="operator">=</span> [];</p>
+                    <p></p>
+                    <p>    <span class="keyword">for</span> (<span class="keyword">let</span> block <span class="keyword">of</span> remainingBlocks) {</p>
+                    <p>      <span class="keyword">const</span> blockHeight <span class="operator">=</span> <span class="function">measureContent</span>(block, region);</p>
+                </div>
+            </div>
+            
+            <!-- Background Code Bottom -->
+            <div class="background-code background-code-bottom">
+                <div class="code-content">
+                    <p>      <span class="keyword">if</span> (usedHeight <span class="operator">+</span> blockHeight <span class="operator"><=</span> availableHeight) {</p>
+                    <p>        fittedBlocks.<span class="function">push</span>(block);</p>
+                    <p>        usedHeight <span class="operator">+=</span> blockHeight;</p>
+                    <p>      } <span class="keyword">else</span> {</p>
+                    <p>        <span class="keyword">break</span>;   <span class="comment">// This block doesn't fit</span></p>
+                    <p>      }</p>
+                    <p>    }</p>
+                    <p></p>
+                    <p>    <span class="comment">// Render fitted content</span></p>
+                    <p>    region.innerHTML <span class="operator">=</span> fittedBlocks.<span class="function">map</span>(renderBlock).<span class="function">join</span>(<span class="string">''</span>);</p>
+                    <p></p>
+                    <p>    <span class="comment">// Remove fitted blocks from remaining</span></p>
+                    <p>    remainingBlocks <span class="operator">=</span> remainingBlocks.<span class="function">slice</span>(fittedBlocks.length);</p>
+                    <p>  });</p>
+                    <p>}</p>
+                </div>
+            </div>
+            
+            <!-- Orange Region Indicator -->
+            <div class="region-indicator"></div>
+            
+            <!-- Columns Container -->
+            <div class="columns-container">
+                <!-- Column 1: Hero Title and Subtitle ONLY -->
+                <div class="column col-title">
+                    <div class="hero-header">
+                        <h1 class="hero-title">
+                            Creativity or <span class="highlight">Complexity</span>?
+                        </h1>
+                        <p class="hero-subtitle">A technical deep dive into recreating print journalism layouts with JavaScript, AI assistance, and a healthy dose of experimentation</p>
+                    </div>
+                </div>
+                
+                <!-- Column 2: First Text Content -->
+                <div class="column col-text col-end">
+                    <div class="region-content">
+                        <p>I didn't expect to spend weeks reverse-engineering magazine layouts when I started this project. But with our current prototypes, we have a system that actually works. And the only reason it exists is because I had an AI coding partner who could write the complex JavaScript I definitely couldn't.</p>
+                        
+                        <div class="column-header">
+                            <h3 class="section-subtitle-heading">The Problem: CSS Regions Didn't Happen</h3>
+                            <p>The web was supposed to get magazine-style layouts. Back around 2014, there was this beautiful CSS specification called Regions. It would have let content flow naturally between different containers scattered across your page, exactly like text flows between columns in a magazine spread. But with vastly more creative control than just using CSS columns.</p>
+                        </div>
+                        
+                        <p>But browsers never fully adopted it. Safari supported it briefly. Chrome experimented with it. Then it got deprecated, and we were stuck with the same boring grid-based layouts that make every website look identical.</p>
+                    </div>
+                </div>
+
+                <!-- Column 5: Region 2 Content (Core Concept) -->
+                <div class="column" id="region-2-content">
+                    <div class="region-2-top">
+                        <p>Meanwhile, print designers were creating these incredible, dynamic layouts where text could snake around images, flow between scattered text boxes, and create visual hierarchy that actually guided your eye through the story. The web felt static and lifeless in comparison. It certainly felt less aesthetic.</p>
+                        <p>So I wondered: could we fake it with JavaScript? I didn't actually know if we could, or even how to do it, but I know how to ask questions. And that felt like a good place to start.</p>
+                    </div>
+                    
+                    <!-- Orange Region Box -->
+                    <div class="region-2-indicator"></div>
+                    
+                    <div class="column-header">
+                        <h3 class="section-subtitle-heading">The Core Concept: Measuring and Flowing</h3>
+                        <p>The basic idea is deceptively simple. Instead of relying on CSS to flow text between regions, we use JavaScript to:</p>
+                        <ol>
+                            <li><strong>Measure</strong> how much content fits in each container</li>
+                            <li><strong>Fill</strong> containers progressively until they overflow</li>
+                            <li><strong>Move</strong> the overflow to the next container</li>
+                            <li><strong>Repeat</strong> until all content is placed</li>
+                            <li><strong>Recalculate</strong> everything when the viewport changes</li>
+                        </ol>
+                        <p>But the devil is in the details.</p>
+                    </div>
+                </div>
+                
+                <!-- Column 3: Technical Implementation -->
+                <div class="column">
+                    <div class="column-header">
+                        <h2 class="section-title nowrap">Technical Implementation</h2>
+                    </div>
+                    
+                    <div class="column-header">
+                        <h3 class="section-subtitle-heading">Content as Structured Data</h3>
+                        <p>First, we had to rethink how content works. Instead of writing HTML directly, we structure everything as JSON:</p>
+                    </div>
+                        
+                        <div class="code-block">
+                            <pre><code>{
+  <span class="property">"blocks"</span><span class="operator">:</span> [
+    {
+      <span class="property">"id"</span><span class="operator">:</span> <span class="string">"intro-1"</span>,
+      <span class="property">"type"</span><span class="operator">:</span> <span class="string">"paragraph"</span>,
+      <span class="property">"text"</span><span class="operator">:</span> <span class="string">"This is a paragraph..."</span>,
+      <span class="property">"keepWithNext"</span><span class="operator">:</span> false,
+      <span class="property">"orphanProtection"</span><span class="operator">:</span> 2
+    },
+    {
+      <span class="property">"id"</span><span class="operator">:</span> <span class="string">"heading-1"</span>,
+      <span class="property">"type"</span><span class="operator">:</span> <span class="string">"heading"</span>,
+      <span class="property">"level"</span><span class="operator">:</span> 2,
+      <span class="property">"text"</span><span class="operator">:</span> <span class="string">"A Bold Subheading"</span>,
+      <span class="property">"keepWithNext"</span><span class="operator">:</span> true,
+      <span class="property">"breakBefore"</span><span class="operator">:</span> false
+    }
+  ]
+}</code></pre>
+                        </div>
+                        
+                        <div class="column-content">
+                        <p>This structure gives us semantic control over how content breaks:</p>
+                        <ul>
+                            <li><span class="text-accent">keepWithNext</span>: Prevents orphaned headings</li>
+                            <li><span class="text-accent">orphanProtection</span>: Ensures minimum lines stay together</li>
+                            <li><span class="text-accent">breakBefore</span>: Forces content to start in a new region</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Column 4: Measurement Challenge -->
+                <div class="column">
+                    <!-- Expandable Orange Box -->
+                    <div class="top-orange-box"></div>
+                    
+                    <!-- Bottom Content -->
+                    <div class="bottom-content">
+                        <div class="column-header">
+                            <h3 class="section-subtitle-heading">The Measurement Challenge</h3>
+                            <p>The trickiest part was measuring text accurately. You can't just count characters, because different fonts, sizes, and line heights all affect how much space text actually takes.</p>
+                            <p>The solution: <strong>ghost rendering</strong>. For each region, we create an invisible clone with identical styling, fill it with content, and measure the actual pixel height:</p>
+                        </div>
+                        
+                        <div class="code-block">
+                            <pre><code><span class="keyword">function</span> <span class="function">measureContent</span>(block, targetRegion) {
+  <span class="comment">// Create invisible test container</span>
+  <span class="keyword">const</span> testDiv <span class="operator">=</span> document.<span class="function">createElement</span>(<span class="string">'div'</span>);
+  testDiv.className <span class="operator">=</span> targetRegion.className;
+  testDiv.style.visibility <span class="operator">=</span> <span class="string">'hidden'</span>;
+  testDiv.style.position <span class="operator">=</span> <span class="string">'absolute'</span>;
+  testDiv.style.width <span class="operator">=</span> <span class="function">getComputedStyle</span>(targetRegion).width;
+
+  <span class="comment">// Render content and measure</span>
+  testDiv.innerHTML <span class="operator">=</span> <span class="function">renderBlock</span>(block);
+  document.body.<span class="function">appendChild</span>(testDiv);
+
+  <span class="keyword">const</span> height <span class="operator">=</span> testDiv.scrollHeight;
+  document.body.<span class="function">removeChild</span>(testDiv);
+
+  <span class="keyword">return</span> height;
+}</code></pre>
+                        </div>
+                        
+                        <p>This gives us pixel-perfect measurements that account for real CSS styling, font loading, and responsive breakpoints.</p>
+                    </div>
+                </div>
+                
+                <!-- Column 6: The Flow Algorithm -->
+                <div class="column">
+                    <div class="column-header">
+                        <h3 class="section-subtitle-heading">The Flow Algorithm</h3>
+                        <p>Once we can measure content, the flow logic becomes manageable:</p>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code><span class="keyword">function</span> <span class="function">flowContent</span>() {
+  <span class="keyword">const</span> regions <span class="operator">=</span> <span class="function">getRegionsInOrder</span>();
+  <span class="keyword">let</span> remainingBlocks <span class="operator">=</span> [<span class="operator">...</span>contentBlocks];
+
+  regions.<span class="function">forEach</span>(region <span class="operator">=></span> {
+    <span class="keyword">let</span> availableHeight <span class="operator">=</span> region.clientHeight;
+    <span class="keyword">let</span> usedHeight <span class="operator">=</span> <span class="number">0</span>;
+    <span class="keyword">let</span> fittedBlocks <span class="operator">=</span> [];
+
+    <span class="keyword">for</span> (<span class="keyword">let</span> block <span class="keyword">of</span> remainingBlocks) {
+      <span class="keyword">const</span> blockHeight <span class="operator">=</span> <span class="function">measureContent</span>(block, region);
+
+      <span class="keyword">if</span> (usedHeight <span class="operator">+</span> blockHeight <span class="operator"><=</span> availableHeight) {
+        fittedBlocks.<span class="function">push</span>(block);
+        usedHeight <span class="operator">+=</span> blockHeight;
+      } <span class="keyword">else</span> {
+        <span class="keyword">break</span>;   <span class="comment">// This block doesn't fit</span>
+      }
+    }
+
+    <span class="comment">// Render fitted content</span>
+    region.innerHTML <span class="operator">=</span> fittedBlocks.<span class="function">map</span>(renderBlock).<span class="function">join</span>(<span class="string">''</span>);
+
+    <span class="comment">// Remove fitted blocks from remaining</span>
+    remainingBlocks <span class="operator">=</span> remainingBlocks.<span class="function">slice</span>(fittedBlocks.length);
+  });
+}</code></pre>
+                    </div>
+                    
+                    <div class="flow-quote">
+                        <p>The actual code to make it all work is surprisingly simple, but building it like this never occurred to me.</p>
+                    </div>
+                </div>
+                
+                <!-- Column 7: Responsive Reflow -->
+                <div class="column col-end">
+                    <div class="column-header">
+                        <h3 class="section-subtitle-heading">Responsive Reflow</h3>
+                        <p>The magic happens on window resize. When the viewport changes, we clear all regions and rerun the entire flow algorithm. Content automatically redistributes based on the new dimensions:</p>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code><span class="function">window</span>.<span class="function">addEventListener</span>(<span class="string">'resize'</span>, <span class="function">debounce</span>(() <span class="operator">=></span> {
+  <span class="function">clearAllRegions</span>();
+  <span class="function">flowContent</span>();
+}, <span class="number">100</span>));</code></pre>
+                    </div>
+                    
+                    <p>This means a three-column desktop layout can gracefully reflow to two columns on tablet, then a single column on mobile—all while maintaining the semantic integrity of headings and paragraphs.</p>
+                    
+                    <div class="column-header">
+                        <h3 class="section-subtitle-heading">Region Definition: The Layout Canvas</h3>
+                        <p>Regions are just HTML containers with a <span class="text-accent">data-flow-order</span> attribute:</p>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code><span class="operator">&lt;</span><span class="keyword">div</span> <span class="property">class</span><span class="operator">=</span><span class="string">"region w-1/3 h-96"</span> <span class="property">data-flow-order</span><span class="operator">=</span><span class="string">"1"</span><span class="operator">&gt;&lt;/</span><span class="keyword">div</span><span class="operator">&gt;</span>
+<span class="operator">&lt;</span><span class="keyword">div</span> <span class="property">class</span><span class="operator">=</span><span class="string">"region w-1/2 h-64"</span> <span class="property">data-flow-order</span><span class="operator">=</span><span class="string">"2"</span><span class="operator">&gt;&lt;/</span><span class="keyword">div</span><span class="operator">&gt;</span>
+<span class="operator">&lt;</span><span class="keyword">div</span> <span class="property">class</span><span class="operator">=</span><span class="string">"region w-full h-48"</span> <span class="property">data-flow-order</span><span class="operator">=</span><span class="string">"3"</span><span class="operator">&gt;&lt;/</span><span class="keyword">div</span><span class="operator">&gt;</span></code></pre>
+                    </div>
+                    
+                    <p>The beauty is that regions can be positioned anywhere on the page using any CSS technique—Flexbox, Grid, absolute positioning, whatever. The JavaScript just flows content through them in order, regardless of their visual arrangement.</p>
+                </div>
+                
+                <!-- Column 8: Small Screen Complications -->
+                <div class="column">
+                    <div class="column-header">
+                        <h3 class="section-subtitle-heading">Small Screen Complications</h3>
+                        <p>For responsive behavior, we had to get clever. On large screens, the JavaScript flow system kicks in. On smaller screens where magazine layouts become impractical, we disable the flow and fall back to traditional CSS layout:</p>
+                    </div>
+                    
+                    <div class="code-block">
+                        <pre><code><span class="comment">/* Large screens: JS flow active */</span>
+<span class="property">@media</span> (<span class="keyword">min-width</span>: <span class="property">1024px</span>) {
+  <span class="string">.region</span> { <span class="keyword">height</span>: <span class="function">var</span>(<span class="function">--region-height</span>); }
+}
+
+<span class="comment">/* Small screens: traditional layout */</span>
+<span class="property">@media</span> (<span class="keyword">max-width</span>: <span class="property">1023px</span>) {
+  <span class="string">.region</span> {
+    <span class="keyword">height</span>: auto <span class="keyword">!important</span>;
+    <span class="keyword">display</span>: block;
+  }
+}</code></pre>
+                    </div>
+                    
+                    <!-- Orange Border Box -->
+                    <div class="orange-border-box">
+                        <!-- Empty orange bordered container -->
+                    </div>
+                </div>
+
+                <!-- Next Column with Orange Border -->
+                <div class="column orange-border"></div>  
+                
+                <!-- Column 9: What Did We Learn (Two-Column Span) -->
+                <div class="column col-two-span">
+                    <div class="learn-section">
+                        <!-- Top Row: Caption + Title + Image -->
+                        <div class="learn-top-row">
+                            <div class="learn-text-content">
+                                <p class="learn-caption">I like to imagine Claude looks like Data from <em>Star Trek: TNG</em>. Also, I used Gemini to make this image, and Gemini doesn't know what Data looks like apparently.</p>
+                                <h2 class="learn-title">What Did We Learn?</h2>
+                            </div>
+                            <div class="learn-image">
+                                <img src="../images/me-and-data.png" alt="AI and human collaboration illustration" />
+                            </div>
+                        </div>
+                        
+                        <!-- Bottom: Learning Paragraph -->
+                        <div class="learn-bottom">
+                            <p>Like all good experiments, it's less about what you did and more about <em>what you learned</em>. The goal of this wasn't to do the thing, it was to learn if it was even possible, how it's possible, and how we can use what we learned in the future.</p>
+                        </div>
+                        
+                        <!-- Three-Column Flowing Content -->
+                        <div class="learn-three-columns">
+                            <p>Here's the thing: I couldn't have built this alone. The JavaScript measurement and flow logic is genuinely complex—dozens of edge cases, browser quirks, and performance considerations I never would have anticipated.</p>
+                            
+                            <p><strong>But I had Claude.</strong></p>
+                            
+                            <p>Instead of spending weeks learning the intricacies of DOM measurement and text rendering, I could focus on</p>
+                            
+                            <p>the creative vision and let AI handle the technical implementation. My process looked like this:</p>
+                            
+                            <ul>
+                                <li><strong>Describe the problem</strong> conceptually ("I want text to flow between scattered containers")</li>
+                                <li><strong>Iterate on solutions</strong> through conversation</li>
+                                <li><strong>Generate comprehensive code</strong> with detailed prompts</li>
+                                <li><strong>Debug and refine</strong> via prompting in Cursor</li>
+                            </ul>
+                            
+                            <p>The AI could instantly generate robust solutions for problems like:</p>
+                            
+                            <ul>
+                                <li>Binary search algorithms for finding text cutoff points</li>
+                                <li>Debounced resize handlers for performance</li>
+                                <li>Cross-browser CSS measurement techniques</li>
+                                <li>Semantic content parsing and rendering</li>
+                            </ul>
+                            
+                            <p>What would have been weeks of research and trial-and-error became hours of directed problem-solving.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Column 10: The Results and Conclusion -->
+                <div class="column">
+                    <div class="column-header">
+                        <h3 class="section-subtitle-heading">The Results: Four Unique Experiments</h3>
+                        <p>Using this system, we built four completely different magazine-style layouts:</p>
+                    </div>
+                    
+                    <ul class="results-list">
+                        <li><strong>The Intro:</strong> Classic three-column flow with dramatic typography</li>
+                        <li><strong>Algorithm Sadness:</strong> Emotional, flowing narrative layout</li>
+                        <li><strong>Horizontal Scroll:</strong> Full-viewport horizontal storytelling</li>
+                        <li><strong>This Technical Deep-dive:</strong> Traditional but enhanced layout</li>
+                    </ul>
+                    
+                    <p>Each page uses the same underlying flow system but with completely different visual treatments—different fonts, colors, spacing, and region arrangements. The content JSON stays semantic and clean while the CSS handles all visual styling.</p>
+                    
+                    <div class="column-header">
+                        <h3 class="section-subtitle-heading">The Experiment Was a Success</h3>
+                        <p><strong>It actually works.</strong> Magazine-style layouts are possible on the web, even without CSS Regions. The performance is good, the responsive behavior is smooth, and the visual results feel genuinely different from typical websites.</p>
+                    </div>
+                    
+                    <p><strong>AI development is transformative.</strong> Complex technical challenges that would normally require specialized expertise can be tackled through conversation and iteration with AI tools. The barrier to experimental development just got much lower.</p>
+                    
+                    <p><strong>Creative constraints breed innovation.</strong> Having to structure content as semantic blocks and think about region flow actually improved our writing and layout decisions.</p>
+                    
+                    <div class="column-header">
+                        <h3 class="section-subtitle-heading">But Was it Worth It?</h3>
+                        <p>That's the question, right? Did we actually learn anything valuable? Did we discover a new way to enhance creativity? I'm not sure sure.</p>
+                    </div>
+                </div>
+                
+                <!-- Column 11: The Broader Implications (Final Column) -->
+                <div class="column">
+                    <div class="column-header">
+                        <h3 class="section-subtitle-heading">The Broader Implications</h3>
+                        <p>While we proved this was doable, I don't know that I proved it was worth it. It took a lot of time, and responsiveness created a multitude of issues we had to work through. And, while we worked through them, it was about 200% more work than just creating any other "normal" site.</p>
+                    </div>
+                    
+                    <p>But that doesn't mean it isn't relevant. It's more of an edge case in my mind. I may still do it if I were creating a site that was creative for the sake of creativity. But, how often are any of us making those? How often do we just build a site for fun, with no care of concern on development time and usability?</p>
+                    
+                    <p>Probably never.</p>
+                    
+                    <p>But it was educational. Beyond the implications of writing code, I learned a lot more about working with AI. My prompts improved drastically, and my ability to understand when it needs context, and what that context should be, greatly improved. So, it was a valuable lesson. Just not the one I expected to learn.</p>
+                    
+                    <p>This was more a lesson in AI, and the future of engineering websites and apps. The development process was rapid, and we could overcome complexities in a couple of short prompts. The way we work is changing forever.</p>
+                    
+                    <p>In the end, though, I think I'll just continue building things the old fashioned way. I'm not trying to win any Awwwards any time soon. I'm just trying to do good work.</p>
+                    
+                    <!-- Final Orange Border Box -->
+                    <div class="final-border-box">
+                        <!-- Orange bordered element that fills remaining space -->
+                    </div>
+                </div>
+
+                <!-- Final Column with Orange Border -->
+                <div class="column orange-border">
+                    <div class="ted-talk-ending">
+                        <p><strong>Thank you for coming to TED Talk.</strong></p>
+                    </div>
+                </div>
+                
+                <!-- END OF COLUMNS - ADD NEW COLUMNS BEFORE THIS COMMENT -->
+                
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/how-we-did-it.js"></script>
+</body>
+</html>

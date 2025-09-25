@@ -1,0 +1,889 @@
+/* How We Did It - Technical Deep Dive */
+
+/* CSS Variables */
+:root {
+    --bg-color: #f1f1eb;
+    --text-color: #060606;
+    --accent-color: #f25531;
+    --code-bg: #30302e;
+    --code-text: #9f9f9f;
+    --section-padding: 2rem;
+    --max-content-width: 1200px;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* AI Lab Logo Styling */
+.ai-lab-logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 120px;
+    height: auto;
+    z-index: 1000;
+}
+
+.logo-main {
+    fill: var(--text-color);
+    transition: fill 0.3s ease;
+}
+
+.logo-i {
+    fill: var(--accent-color);
+    transition: fill 0.3s ease;
+}
+
+.ai-lab-logo:hover .logo-i {
+    fill: #c73e3a;
+}
+
+/* Global Navigation Accent Color */
+body[data-page="how-we-did-it"] {
+    --nav-accent-color: var(--accent-color);
+}
+
+/* Main Layout */
+.main-content {
+    min-height: 100vh;
+}
+
+/* Single Content Section */
+.content-section {
+    position: relative;
+    background: var(--bg-color);
+    padding: 0 2rem 0 0;
+    min-height: 100vh;
+}
+
+/* Columns Container - CSS Grid with Auto-Wrapping */
+.columns-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(376px, 1fr));
+    grid-auto-rows: 100vh;
+    gap: 0 2rem;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+    padding: 0 1rem;
+}
+
+/* Scroll Snap for Desktop - Smooth magazine-page navigation */
+@media (min-width: 851px) {
+    html {
+        scroll-snap-type: y mandatory; /* Forces snap to boundaries */
+    }
+    
+    /* Target the main sections */
+    .hero-section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+    
+    .content-section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+    
+    /* Also try individual columns as snap points */
+    .column {
+        scroll-snap-align: start;
+    }
+}
+
+/* Individual Column */
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 0;
+    min-height: 100vh;
+}
+
+/* Column Width Utility Classes for CSS Grid */
+.col-narrow { 
+    grid-column: span 1;
+    min-width: 250px;
+}
+
+.col-medium { 
+    grid-column: span 1;
+    min-width: 350px;
+}
+
+.col-wide { 
+    grid-column: span 2;
+    min-width: 500px;
+}
+
+.col-extra-wide { 
+    grid-column: span 3;
+    min-width: 700px;
+}
+
+/* Content-specific column classes */
+.col-title { 
+    grid-column: span 2;
+    min-width: 600px;
+    padding-left: 5rem;
+}
+
+.col-text { 
+    grid-column: span 1;
+    min-width: 300px;
+}
+
+.col-code { 
+    grid-column: span 1;
+    min-width: 400px;
+}
+
+.col-two-span {
+    grid-column: span 2;
+    min-width: 750px;
+}
+
+/* Utility Classes */
+.orange-border {
+    border: 1px solid var(--accent-color);
+}
+
+.final-border-box {
+    flex: 1;
+    width: 100%;
+    min-height: 200px;
+    border: 1px solid var(--accent-color);
+    margin-top: 2rem;
+}
+
+/* TED Talk Ending */
+.ted-talk-ending {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.ted-talk-ending p {
+    margin: 0 0 2rem 0;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* Code Sidebar Column */
+.code-sidebar-column {
+    grid-column: span 1;
+    min-width: 56px;
+    max-width: 56px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    background: var(--code-bg);
+    height: 100vh;
+}
+
+.col-end {
+    justify-content: flex-end;
+}
+
+/* Remove old section styles - no longer needed */
+
+/* Code Sidebar - Left aligned with logo */
+.code-sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 56px;
+    height: 100vh;
+    background: var(--code-bg);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    z-index: 10;
+}
+
+.code-text {
+    font-family: 'B612 Mono', monospace;
+    font-size: 1rem;
+    color: var(--code-text);
+    white-space: nowrap;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+}
+
+/* Code text in sidebar column */
+.code-sidebar-column .code-text {
+    font-size: 1rem;
+}
+
+/* Background Code - Decorative only */
+.background-code {
+    position: absolute;
+    opacity: 0.25;
+    font-family: 'B612 Mono', monospace;
+    font-size: 1rem;
+    color: var(--code-text);
+    line-height: 1.5;
+    white-space: pre;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.background-code-top {
+    left: 100px;
+    top: 5vh;
+}
+
+.background-code-bottom {
+    left: 100px;
+    bottom: 87vh;
+}
+
+.background-code p {
+    margin: 0;
+}
+
+/* Orange Region Indicators */
+.region-indicator {
+    position: absolute;
+    left: 100px;
+    top: -1px;
+    width: min(360px, 25vw);
+    height: 21rem;
+    border: 1px solid var(--accent-color);
+    z-index: 2;
+}
+
+.region-2-indicator {
+    flex: 1;
+    border: 1px solid var(--accent-color);
+    min-height: 100px;
+}
+
+.orange-border-box {
+    width: 100%;
+    height: 423px;
+    border: 1px solid var(--accent-color);
+    margin-top: 2rem;
+}
+
+/* What Did We Learn Section */
+.learn-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    justify-content: end;
+}
+
+.learn-top-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.learn-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 260px;
+    width: 301px;
+    flex-shrink: 0;
+}
+
+.learn-caption {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.learn-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--text-color);
+    margin: 0;
+    width: 295px;
+}
+
+.learn-image {
+    width: 440px;
+    height: 260px;
+    flex-shrink: 0;
+}
+
+.learn-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+.learn-bottom {
+    width: 100%;
+}
+
+.learn-bottom p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.learn-indicator {
+    z-index: -1;
+    position: absolute;
+    right: 0rem;
+    top: 5rem;
+    width: min(360px, 25vw);
+    height: 34rem;
+    border: 1px solid var(--accent-color);
+}
+
+/* Three-Column Flowing Content */
+.learn-three-columns {
+    column-count: 3;
+    column-gap: 1.5rem;
+    column-fill: balance; /* Distributes content evenly */
+    margin-top: 2rem;
+    line-height: 1.5;
+}
+
+.learn-three-columns p {
+    margin-bottom: 1rem;
+    break-inside: avoid-column; /* Avoid breaking paragraphs when possible */
+}
+
+.learn-three-columns ul {
+    break-inside: avoid-column; /* Keep lists together when possible */
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.learn-three-columns li {
+    margin-bottom: 0.5rem;
+}
+
+.learn-three-columns strong {
+    font-weight: 600;
+}
+
+/* Main Content Grid */
+.hero-content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2rem;
+    max-width: 1480px;
+    width: 100%;
+    height: 90vh;
+    align-items: start;
+    position: relative;
+    z-index: 5;
+}
+
+/* Hero Header - First column (50% width) */
+.hero-header {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+}
+
+.hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.hero-title .highlight {
+    color: var(--accent-color);
+}
+
+.hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+/* Region Content Areas */
+.region-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.region-1 {
+    grid-column: 2;
+    align-self: end;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.region-2 {
+    grid-column: 3;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.region-2-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.region-2-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Typography */
+.region-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.region-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.region-content ol {
+    margin: 0;
+    padding-left: 1.5rem;
+    list-style: decimal;
+}
+
+.region-content li {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin-bottom: 0;
+}
+
+.region-content strong {
+    font-weight: 700;
+}
+
+.column ul, .column ol {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+/* Code Block Styles */
+.code-block {
+    background: var(--code-bg);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    margin: 0;
+    overflow-x: auto;
+    border: 1px solid var(--accent-color);
+    box-shadow: 
+        0px 4px 4px rgba(0, 0, 0, 0.25),
+        27.237px 51.207px 80px rgba(0, 0, 0, 0.1),
+        17.653px 33.19px 46.852px rgba(0, 0, 0, 0.075),
+        10.491px 19.724px 25.481px rgba(0, 0, 0, 0.063),
+        5.447px 10.241px 13px rgba(0, 0, 0, 0.05),
+        2.219px 4.172px 6.519px rgba(0, 0, 0, 0.04),
+        0.504px 0.948px 3.148px rgba(0, 0, 0, 0.024);
+}
+
+.code-block pre {
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.code-block code {
+    font-family: 'B612 Mono', monospace;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--code-text);
+    white-space: pre;
+    display: block;
+}
+
+.columns-container .code-sidebar-column {
+     margin-left: -1rem;
+
+}
+
+/* Syntax Highlighting */
+.keyword {
+    color: #cd8bee;
+}
+
+.function {
+    color: #559ed3;
+}
+
+.operator {
+    color: #559ed3;
+}
+
+.string {
+    color: #98c379;
+}
+
+.number {
+    color: #e2ae15;
+}
+
+.comment {
+    color: #5d5c5c;
+}
+
+.class {
+    color: #98c379;
+}
+
+.property {
+    color: #df6b74;
+}
+
+.value {
+    color: #d19a66;
+}
+
+.variable {
+    color: #559ed3;
+}
+
+.tag {
+    color: #df6b74;
+}
+
+.attribute {
+    color: #d19a66;
+}
+
+.at-rule {
+    color: #d19a66;
+}
+
+.important {
+    color: #df6b74;
+}
+
+.text-accent {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+/* Content Column Styles */
+.content-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 600px;
+}
+
+.section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.1;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+    line-height: 1.4;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.column-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.column-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Column with Top Orange Box (Column 3) */
+.column .top-orange-box {
+    flex: 1;
+    border: 1px solid var(--accent-color);
+    min-height: 100px;
+}
+
+.column .bottom-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.section-subtitle-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0 0 .33rem 0;
+}
+
+.bottom-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.bottom-content strong {
+    font-weight: 700;
+}
+
+/* Flow Quote Styling */
+.flow-quote {
+    border: 1px solid var(--accent-color);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.flow-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+/* Overflow Section Styles */
+.overflow-section {
+    min-height: 100vh;
+    background: var(--bg-color);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overflow-content {
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1100px) {
+    /* At this breakpoint, switch to 2-column layout */
+    .hero-content-grid {
+        grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+    }
+    
+    .hero-header {
+        grid-column: 1 / 3;
+    }
+    
+    .region-1 {
+        grid-column: 1;
+    }
+    
+    .region-2 {
+        grid-column: 2;
+    }
+}
+
+/* Responsive: Single column below 1024px */
+@media (max-width: 850px) {
+    .columns-container {
+        display: block; /* Switch from grid to block layout */
+    }
+    
+    .column {
+        min-height: auto; /* Remove 100vh requirement */
+        width: 100%;
+        margin-bottom: 2rem; /* Add spacing between columns */
+        display: block; /* Override flex */
+    }
+
+    .code-sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    /* At this breakpoint, Region 2 wraps to overflow section */
+    .hero-content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-header {
+        grid-column: 1;
+    }
+    
+    .region-1 {
+        grid-column: 1;
+    }
+    
+    .region-2 {
+        display: none; /* Hidden in hero, moved to overflow section */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .hero-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    /* Hide decorative elements on mobile */
+    .background-code,
+    .region-indicator {
+        display: none;
+    }
+    
+    /* Code sidebar becomes top element */
+    .code-sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        writing-mode: horizontal-tb;
+        text-orientation: initial;
+        padding: 1rem;
+        order: 1;
+    }
+    
+    .code-text {
+        transform: none;
+        writing-mode: horizontal-tb;
+        text-orientation: initial;
+        font-size: 1rem;
+    }
+    
+    /* Hero header */
+    .hero-header {
+        position: static;
+        width: 100%;
+        order: 2;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+    
+    /* Region content */
+    .region-content {
+        position: static;
+        width: 100%;
+    }
+    
+    .region-1 {
+        order: 3;
+    }
+    
+    .region-2 {
+        order: 4;
+        height: auto;
+    }
+    
+    .region-2-indicator {
+        height: 100px;
+        margin: 1rem 0;
+    }
+    
+    /* Logo adjustments */
+    .ai-lab-logo {
+        width: 50px;
+        top: 1rem;
+        left: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .code-block code {
+        font-size: 0.75rem;
+    }
+    
+    section {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .ai-lab-logo {
+        width: 50px;
+        top: 0.75rem;
+        left: 0.75rem;
+    }
+}

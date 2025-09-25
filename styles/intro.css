@@ -49,8 +49,6 @@ header {
     fill: #E6B325;
 }
 
-
-
 #hero .hero-grid {
   display: flex;
   flex-direction: column;
@@ -119,6 +117,7 @@ header {
   flex: 1;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
 .hero-content {
@@ -145,6 +144,15 @@ header {
 
 .region {
   overflow: hidden;
+  z-index: 10;
+}
+
+.inline-link {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  font-weight: 700;
 }
 
 @media (min-width: 1800px) {

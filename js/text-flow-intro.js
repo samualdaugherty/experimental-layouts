@@ -159,7 +159,7 @@
       const tag = `h${lvl}`;
       const h = document.createElement(tag);
       h.className = `flow-heading flow-h${lvl}`;
-      h.textContent = text;
+      h.innerHTML = text;
       this.log(`Created heading: ${tag}, text="${text.substring(0, 30)}...", className=${h.className}`);
       return h;
     }
@@ -167,7 +167,7 @@
     createParagraph(text) {
       const p = document.createElement('p');
       p.className = 'flow-p';
-      p.textContent = text;
+      p.innerHTML = text;
       this.log(`Created paragraph: text="${text.substring(0, 30)}...", className=${p.className}`);
       return p;
     }
@@ -394,7 +394,7 @@
       
       for (let i = 0; i < words.length; i++) {
         const testText = currentText + (currentText ? ' ' : '') + words[i];
-        measureP.textContent = testText;
+        measureP.innerHTML = testText;
         
         // Force a reflow to get accurate height
         measureP.offsetHeight;
@@ -414,7 +414,7 @@
       
       // If we couldn't fit even one word, try it anyway
       if (bestWordCount === 0 && words.length > 0) {
-        measureP.textContent = words[0];
+        measureP.innerHTML = words[0];
         const singleWordHeight = measureP.getBoundingClientRect().height;
         if (singleWordHeight <= availableHeight) {
           bestText = words[0];

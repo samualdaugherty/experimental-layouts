@@ -16,6 +16,10 @@
       "dest": "/algorithm/$1"
     },
     {
+      "src": "/how-we-did-it/(.*)",
+      "dest": "/how-we-did-it/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1"
     }

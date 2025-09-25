@@ -91,7 +91,8 @@ class GlobalNavigation {
       
       if (normalizedPath === normalizedHref || 
           (normalizedPath.includes('/stoic-drama') && href.includes('/stoic-drama')) ||
-          (normalizedPath.includes('/algorithm') && href.includes('/algorithm'))) {
+          (normalizedPath.includes('/algorithm') && href.includes('/algorithm')) ||
+          (normalizedPath.includes('/how-we-did-it') && href.includes('/how-we-did-it'))) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');

@@ -4,7 +4,7 @@
     {
       "id": "intro-1",
       "type": "paragraph",
-      "text": "I didn't know what to expect when I set out on this. A while back, I wrote an article wishing print journalism-style layouts would make a comeback. And I fully believe they should. We should have more fun and be more creative, and stop confining ourselves to generic, mundane templates that seem to permeate every corner of the web. Your website doesn't have to look like every other website!",
+      "text": "I didn't know what to expect when I set out on this. A while back, I <a href=\"https://www.sambuilt.it/writing/print-journalism-layouts\" class=\"inline-link\">wrote an article</a> wishing print journalism-style layouts would make a comeback. And I fully believe they should. We should have more fun and be more creative, and stop confining ourselves to generic, mundane templates that seem to permeate every corner of the web. Your website doesn't have to look like every other website!",
       "keepWithNext": false,
       "orphanProtection": 2
     },
